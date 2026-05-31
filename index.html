@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="EcoRaíz monitorea cultivos de interior y transforma datos ambientales en recomendaciones simples para mantener plantas saludables." />
+  <title>EcoRaíz | Tecnología sostenible para cultivos urbanos</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&family=Nunito:wght@400;500;600;700&family=Poppins:wght@600;700;800&family=Raleway:wght@600;700&display=swap" rel="stylesheet" />
+  <script>
+    (function () {
+      const savedTheme = localStorage.getItem("ecoraiz-theme");
+      document.documentElement.setAttribute("data-theme", savedTheme || "light");
+    })();
+  </script>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header" id="inicio">
+    <nav class="navbar container" aria-label="Navegación principal">
+      <a class="brand" href="index.html" aria-label="EcoRaíz inicio">
+        <img src="assets/icons/logo.svg" alt="Logo EcoRaíz" class="brand-logo" />
+        <span>EcoRaíz</span>
+      </a>
+
+      <button class="menu-toggle" type="button" aria-label="Abrir menú" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <div class="nav-menu" id="nav-menu">
+        <a href="#inicio">Inicio</a>
+        <a href="#problema">Problema</a>
+        <a href="#solucion">Solución</a>
+        <a href="#beneficios">Beneficios</a>
+        <a href="#funcionalidades">Funcionalidades</a>
+        <a href="#planes">Planes</a>
+        <a href="contacto.html">Contacto</a>
+        <button class="theme-switch" type="button" data-theme-toggle aria-label="Cambiar a modo oscuro" aria-pressed="false">
+          <span class="theme-switch__knob" aria-hidden="true"><span class="theme-switch__knob-icon">☀️</span></span>
+        </button>
+        <a class="btn btn-primary nav-cta" href="contacto.html">Probar EcoRaíz</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero section-pad" aria-labelledby="hero-title">
+      <div class="hero-bg-orb orb-one" aria-hidden="true"></div>
+      <div class="hero-bg-orb orb-two" aria-hidden="true"></div>
+      <div class="container hero-grid">
+        <div class="hero-content reveal">
+          <span class="eyebrow">Tecnología sostenible para cultivos urbanos</span>
+          <h1 id="hero-title">Cuida tus plantas de interior con ayuda inteligente</h1>
+          <p>EcoRaíz monitorea condiciones como humedad, luz y temperatura para convertir datos ambientales en recomendaciones simples, alertas preventivas y decisiones oportunas.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="contacto.html">Empezar ahora</a>
+            <a class="btn btn-secondary" href="#como-funciona">Ver cómo funciona</a>
+          </div>
+          <div class="hero-stats" aria-label="Indicadores principales">
+            <div>
+              <strong>3</strong>
+              <span>segmentos atendidos</span>
+            </div>
+            <div>
+              <strong>24/7</strong>
+              <span>alertas preventivas</span>
+            </div>
+            <div>
+              <strong>+</strong>
+              <span>decisiones sostenibles</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-visual reveal" aria-label="Vista previa de EcoRaíz">
+          <div class="phone-card">
+            <div class="phone-top">
+              <span></span>
+              <span></span>
+            </div>
+            <div class="plant-preview">
+              <img src="assets/img/hero-plant.svg" alt="Ilustración de planta monitoreada" />
+              <div class="plant-status success">
+                <span class="status-dot"></span>
+                Saludable
+              </div>
+            </div>
+            <div class="metric-list">
+              <article class="metric-card">
+                <div>
+                  <span class="metric-icon">💧</span>
+                  <p>Humedad</p>
+                </div>
+                <strong>Adecuada</strong>
+              </article>
+              <article class="metric-card warning-card">
+                <div>
+                  <span class="metric-icon">☀️</span>
+                  <p>Luz</p>
+                </div>
+                <strong>Revisar</strong>
+              </article>
+              <article class="recommendation-card">
+                <span>Recomendación</span>
+                <p>Mueve la planta cerca de una ventana durante la mañana.</p>
+              </article>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-pad problem" id="problema" aria-labelledby="problem-title">
+      <div class="container">
+        <div class="section-heading reveal">
+          <span class="eyebrow">Problema</span>
+          <h2 id="problem-title">¿Por qué mueren las plantas en interiores?</h2>
+          <p>Muchas plantas se deterioran porque las señales aparecen tarde y las recomendaciones generales no consideran el microclima real de cada hogar, aula o negocio.</p>
+        </div>
+        <div class="cards-grid problem-grid">
+          <article class="info-card reveal">
+            <span class="card-icon">⏱️</span>
+            <h3>Falta de monitoreo</h3>
+            <p>El usuario no siempre revisa sus plantas a tiempo y los cambios ambientales pasan desapercibidos.</p>
+          </article>
+          <article class="info-card reveal">
+            <span class="card-icon">💦</span>
+            <h3>Riego incorrecto</h3>
+            <p>El exceso o la falta de agua afecta la salud de la planta y puede generar desperdicio de recursos.</p>
+          </article>
+          <article class="info-card reveal">
+            <span class="card-icon">🌤️</span>
+            <h3>Luz limitada</h3>
+            <p>Los espacios urbanos cerrados no siempre ofrecen la exposición adecuada para cada especie.</p>
+          </article>
+          <article class="info-card reveal">
+            <span class="card-icon">🔎</span>
+            <h3>Información genérica</h3>
+            <p>Los tutoriales no siempre explican qué hacer según el entorno real del usuario.</p>
+          </article>
+          <article class="info-card reveal">
+            <span class="card-icon">📅</span>
+            <h3>Falta de tiempo</h3>
+            <p>Las rutinas diarias dificultan una supervisión constante y ordenada.</p>
+          </article>
+          <article class="info-card reveal">
+            <span class="card-icon">⚠️</span>
+            <h3>Deterioro tardío</h3>
+            <p>Cuando las hojas cambian de color o se marchitan, a veces ya es difícil recuperar la planta.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-pad solution" id="solucion" aria-labelledby="solution-title">
+      <div class="container solution-grid">
+        <div class="solution-content reveal">
+          <span class="eyebrow">Solución</span>
+          <h2 id="solution-title">EcoRaíz transforma datos ambientales en acciones simples</h2>
+          <p>Nuestra plataforma permite registrar, visualizar y monitorear el estado de tus cultivos mediante indicadores claros, alertas preventivas y recomendaciones fáciles de aplicar.</p>
+          <a class="btn btn-secondary" href="#funcionalidades">Explorar funcionalidades</a>
+        </div>
+        <div class="recommendation-list reveal" aria-label="Ejemplos de recomendaciones">
+          <article>
+            <span class="tag tag-success">Acción</span>
+            <p>Agrega agua hoy.</p>
+          </article>
+          <article>
+            <span class="tag tag-warning">Prevención</span>
+            <p>Mueve la planta a una zona con más luz.</p>
+          </article>
+          <article>
+            <span class="tag tag-warning">Humedad</span>
+            <p>La humedad está por debajo del nivel recomendado.</p>
+          </article>
+          <article>
+            <span class="tag tag-error">Crítico</span>
+            <p>Esta planta requiere atención inmediata.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-pad benefits" id="beneficios" aria-labelledby="benefits-title">
+      <div class="container">
+        <div class="section-heading reveal">
+          <span class="eyebrow">Beneficios por segmento</span>
+          <h2 id="benefits-title">Una experiencia pensada para cada tipo de usuario</h2>
+          <p>EcoRaíz adapta su valor a residentes, expertos y emprendedores que necesitan cuidar cultivos en interiores urbanos.</p>
+        </div>
+        <div class="segment-grid">
+          <article class="segment-card reveal">
+            <div class="segment-icon">🏠</div>
+            <h3>Para residentes urbanos</h3>
+            <p>Cuida tus plantas sin necesidad de ser experto.</p>
+            <ul>
+              <li>Alertas fáciles de entender.</li>
+              <li>Recomendaciones simples.</li>
+              <li>Estado visual de cada planta.</li>
+              <li>Menos pérdidas por descuido.</li>
+            </ul>
+          </article>
+          <article class="segment-card featured reveal">
+            <div class="segment-icon">🔬</div>
+            <h3>Para expertos y educadores</h3>
+            <p>Monitorea microclimas y analiza datos con mayor claridad.</p>
+            <ul>
+              <li>Variables ambientales detalladas.</li>
+              <li>Gráficos históricos.</li>
+              <li>Comparación de microclimas.</li>
+              <li>Exportación de reportes.</li>
+            </ul>
+          </article>
+          <article class="segment-card reveal">
+            <div class="segment-icon">🪴</div>
+            <h3>Para emprendedores de plantas</h3>
+            <p>Protege tu inventario vivo y reduce pérdidas económicas.</p>
+            <ul>
+              <li>Detección de plantas críticas.</li>
+              <li>Panel comercial.</li>
+              <li>Historial de mantenimiento.</li>
+              <li>Estimación de pérdidas potenciales.</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-pad features" id="funcionalidades" aria-labelledby="features-title">
+      <div class="container">
+        <div class="section-heading reveal">
+          <span class="eyebrow">Funcionalidades</span>
+          <h2 id="features-title">Todo lo necesario para actuar antes del deterioro</h2>
+        </div>
+        <div class="feature-grid">
+          <article class="feature-card reveal"><span>💧</span><h3>Monitoreo ambiental</h3><p>Humedad, luz y temperatura organizadas en indicadores claros.</p></article>
+          <article class="feature-card reveal"><span>🟢</span><h3>Estado general</h3><p>Saludable, advertencia o crítico con apoyo de texto e íconos.</p></article>
+          <article class="feature-card reveal"><span>🔔</span><h3>Alertas preventivas</h3><p>Avisos oportunos antes de que el daño sea visible.</p></article>
+          <article class="feature-card reveal"><span>✨</span><h3>Recomendaciones</h3><p>Acciones directas, simples y fáciles de aplicar.</p></article>
+          <article class="feature-card reveal"><span>📊</span><h3>Panel visual</h3><p>Resumen del estado de cultivos en una vista clara.</p></article>
+          <article class="feature-card reveal"><span>📝</span><h3>Historial de cuidados</h3><p>Registro de acciones aplicadas y evolución de cada planta.</p></article>
+          <article class="feature-card reveal"><span>📈</span><h3>Gráficos ambientales</h3><p>Tendencias de humedad, luz y temperatura en el tiempo.</p></article>
+          <article class="feature-card reveal"><span>📄</span><h3>Reportes</h3><p>Información lista para análisis, clases o gestión comercial.</p></article>
+          <article class="feature-card reveal"><span>🧾</span><h3>Inventario comercial</h3><p>Control de plantas para venta, alquiler o mantenimiento.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-pad how" id="como-funciona" aria-labelledby="how-title">
+      <div class="container">
+        <div class="section-heading reveal">
+          <span class="eyebrow">Cómo funciona</span>
+          <h2 id="how-title">Cuida tus cultivos en 4 pasos</h2>
+        </div>
+        <div class="steps">
+          <article class="step-card reveal"><span>1</span><h3>Registra</h3><p>Agrega tu planta, cultivo o lote comercial.</p></article>
+          <article class="step-card reveal"><span>2</span><h3>Consulta</h3><p>Revisa las condiciones ambientales principales.</p></article>
+          <article class="step-card reveal"><span>3</span><h3>Recibe alertas</h3><p>Obtén recomendaciones claras y preventivas.</p></article>
+          <article class="step-card reveal"><span>4</span><h3>Actúa</h3><p>Aplica acciones y revisa la evolución.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-pad preview" aria-labelledby="preview-title">
+      <div class="container preview-grid">
+        <div class="preview-content reveal">
+          <span class="eyebrow">Vista previa</span>
+          <h2 id="preview-title">Una plataforma visual, clara y accionable</h2>
+          <p>EcoRaíz organiza indicadores, alertas y recomendaciones en pantallas simples para que cada usuario encuentre rápido lo que necesita.</p>
+        </div>
+        <div class="ui-showcase reveal" aria-label="Simulación de pantallas de EcoRaíz">
+          <div class="panel-card main-panel">
+            <div class="panel-header">
+              <span>Panel principal</span>
+              <strong>Hoy</strong>
+            </div>
+            <div class="panel-kpis">
+              <div><strong>12</strong><span>plantas</span></div>
+              <div><strong>3</strong><span>alertas</span></div>
+              <div><strong>86%</strong><span>estables</span></div>
+            </div>
+            <div class="bar-chart" aria-hidden="true">
+              <span style="height: 46%"></span>
+              <span style="height: 70%"></span>
+              <span style="height: 58%"></span>
+              <span style="height: 82%"></span>
+              <span style="height: 62%"></span>
+            </div>
+          </div>
+          <div class="panel-card alert-panel">
+            <span class="tag tag-warning">Alerta preventiva</span>
+            <h3>Helecho en advertencia</h3>
+            <p>Humedad baja. Agrega agua hoy y evita exposición directa.</p>
+          </div>
+          <div class="panel-card inventory-panel">
+            <span class="tag tag-success">Inventario</span>
+            <h3>Listas para venta</h3>
+            <p>8 plantas saludables y 2 en recuperación.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-pad pricing" id="planes" aria-labelledby="pricing-title">
+      <div class="container">
+        <div class="section-heading reveal">
+          <span class="eyebrow">Planes</span>
+          <h2 id="pricing-title">Elige el plan según tu forma de cultivar</h2>
+        </div>
+        <div class="pricing-grid">
+          <article class="price-card reveal">
+            <h3>Gratuito</h3>
+            <p>Para empezar a cuidar plantas de interior.</p>
+            <div class="price">S/ 0</div>
+            <ul>
+              <li>Registro básico de plantas.</li>
+              <li>Panel visual simple.</li>
+              <li>Recomendaciones básicas.</li>
+              <li>Indicadores visuales.</li>
+            </ul>
+            <a class="btn btn-secondary" href="contacto.html">Comenzar</a>
+          </article>
+          <article class="price-card popular reveal">
+            <span class="popular-badge">Más elegido</span>
+            <h3>Premium</h3>
+            <p>Para usuarios que buscan más personalización.</p>
+            <div class="price">S/ 8.90 <small>/ mes</small></div>
+            <ul>
+              <li>Historial extendido.</li>
+              <li>Alertas más detalladas.</li>
+              <li>Mayor personalización.</li>
+              <li>Reportes avanzados.</li>
+            </ul>
+            <a class="btn btn-primary" href="contacto.html">Probar premium</a>
+          </article>
+          <article class="price-card reveal">
+            <h3>Instituciones</h3>
+            <p>Para negocios, aulas y proyectos ambientales.</p>
+            <div class="price">A medida</div>
+            <ul>
+              <li>Inventario vivo.</li>
+              <li>Reportes comerciales.</li>
+              <li>Gestión de lotes.</li>
+              <li>Exportación de datos.</li>
+            </ul>
+            <a class="btn btn-secondary" href="contacto.html">Solicitar información</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-pad testimonials" aria-labelledby="testimonials-title">
+      <div class="container">
+        <div class="section-heading reveal">
+          <span class="eyebrow">Testimonios</span>
+          <h2 id="testimonials-title">Lo que EcoRaíz busca resolver</h2>
+        </div>
+        <div class="testimonial-grid">
+          <article class="testimonial-card reveal">
+            <p>“Ahora sé cuándo regar mis plantas sin tener que adivinar.”</p>
+            <strong>Residente urbano</strong>
+          </article>
+          <article class="testimonial-card reveal">
+            <p>“Los gráficos me ayudan a explicar mejor el comportamiento de los cultivos.”</p>
+            <strong>Educador ambiental</strong>
+          </article>
+          <article class="testimonial-card reveal">
+            <p>“Las alertas preventivas me ayudan a reducir pérdidas en mi negocio.”</p>
+            <strong>Emprendedor de plantas</strong>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-pad faq" aria-labelledby="faq-title">
+      <div class="container faq-grid">
+        <div class="faq-intro reveal">
+          <span class="eyebrow">Preguntas frecuentes</span>
+          <h2 id="faq-title">Resuelve tus dudas antes de empezar</h2>
+          <p>EcoRaíz está diseñado para que la información técnica se convierta en decisiones claras.</p>
+        </div>
+        <div class="faq-list reveal">
+          <details>
+            <summary>¿Necesito saber de botánica para usar EcoRaíz?</summary>
+            <p>No. EcoRaíz está diseñado para usuarios sin conocimientos técnicos.</p>
+          </details>
+          <details>
+            <summary>¿Qué variables monitorea EcoRaíz?</summary>
+            <p>Humedad, luz, temperatura y estado general del cultivo.</p>
+          </details>
+          <details>
+            <summary>¿EcoRaíz sirve para negocios de plantas?</summary>
+            <p>Sí. Permite gestionar inventario vivo, detectar riesgos y reducir pérdidas.</p>
+          </details>
+          <details>
+            <summary>¿Puedo usar EcoRaíz en clases o investigaciones?</summary>
+            <p>Sí. Cuenta con paneles visuales, gráficos históricos y reportes.</p>
+          </details>
+          <details>
+            <summary>¿La app reemplaza al usuario?</summary>
+            <p>No. Ayuda a tomar mejores decisiones, pero el usuario mantiene el control final.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta section-pad" aria-labelledby="cta-title">
+      <div class="container cta-card reveal">
+        <h2 id="cta-title">Empieza a cuidar tus cultivos con decisiones inteligentes</h2>
+        <p>EcoRaíz te ayuda a prevenir daños, ahorrar recursos y mantener tus plantas saludables desde una plataforma simple, visual y accesible.</p>
+        <a class="btn btn-light" href="contacto.html">Probar EcoRaíz</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <a class="brand footer-brand" href="index.html">
+          <img src="assets/icons/logo.svg" alt="Logo EcoRaíz" class="brand-logo" />
+          <span>EcoRaíz</span>
+        </a>
+        <p>Tecnología sostenible para cultivos urbanos.</p>
+      </div>
+      <div>
+        <h3>EcoRay Group</h3>
+        <a href="#problema">Problema</a>
+        <a href="#beneficios">Beneficios</a>
+        <a href="#planes">Planes</a>
+      </div>
+      <div>
+        <h3>Contacto</h3>
+        <a href="contacto.html">Formulario de contacto</a>
+        <a href="#faq-title">Preguntas frecuentes</a>
+        <a href="#inicio">Volver arriba</a>
+      </div>
+      <div>
+        <h3>Redes</h3>
+        <a href="#" aria-label="Instagram de EcoRaíz">Instagram</a>
+        <a href="#" aria-label="LinkedIn de EcoRaíz">LinkedIn</a>
+        <a href="#" aria-label="YouTube de EcoRaíz">YouTube</a>
+      </div>
+    </div>
+    <div class="footer-bottom container">
+      <small>© 2026 EcoRay Group. Todos los derechos reservados.</small>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
