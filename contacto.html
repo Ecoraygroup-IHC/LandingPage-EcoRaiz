@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Contáctanos para recibir más información sobre EcoRaíz." />
+  <title>Contacto | EcoRaíz</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&family=Nunito:wght@400;500;600;700&family=Poppins:wght@600;700;800&family=Raleway:wght@600;700&display=swap" rel="stylesheet" />
+  <script>
+    (function () {
+      const savedTheme = localStorage.getItem("ecoraiz-theme");
+      document.documentElement.setAttribute("data-theme", savedTheme || "light");
+    })();
+  </script>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <nav class="navbar container" aria-label="Navegación de contacto">
+      <a class="brand" href="index.html" aria-label="Volver a inicio EcoRaíz">
+        <img src="assets/icons/logo.svg" alt="Logo EcoRaíz" class="brand-logo" />
+        <span>EcoRaíz</span>
+      </a>
+      <div class="header-actions">
+        <button class="theme-switch" type="button" data-theme-toggle aria-label="Cambiar a modo oscuro" aria-pressed="false">
+          <span class="theme-switch__knob" aria-hidden="true"><span class="theme-switch__knob-icon">☀️</span></span>
+        </button>
+        <a class="btn btn-secondary" href="index.html">Volver al inicio</a>
+      </div>
+    </nav>
+  </header>
+
+  <main class="contact-page">
+    <section class="section-pad">
+      <div class="container contact-layout">
+        <div class="contact-copy reveal">
+          <span class="eyebrow">Contacto</span>
+          <h1>Contáctanos</h1>
+          <p>Déjanos tus datos y nos comunicaremos contigo para brindarte más información sobre EcoRaíz.</p>
+          <div class="contact-info-card">
+            <h2>EcoRay Group</h2>
+            <p>Soluciones tecnológicas sostenibles para cultivos urbanos.</p>
+            <ul>
+              <li><span>🌱</span> Monitoreo de cultivos de interior</li>
+              <li><span>🔔</span> Alertas preventivas</li>
+              <li><span>📈</span> Reportes visuales y análisis</li>
+            </ul>
+          </div>
+        </div>
+
+        <form class="contact-form reveal" id="contact-form" novalidate>
+          <div class="form-row">
+            <label for="name">Nombre completo</label>
+            <input id="name" name="name" type="text" placeholder="Ej. Giovanni Gallegos" required />
+            <small class="error-message"></small>
+          </div>
+          <div class="form-row">
+            <label for="email">Correo electrónico</label>
+            <input id="email" name="email" type="email" placeholder="correo@ejemplo.com" required />
+            <small class="error-message"></small>
+          </div>
+          <div class="form-row">
+            <label for="userType">Tipo de usuario</label>
+            <select id="userType" name="userType" required>
+              <option value="">Selecciona una opción</option>
+              <option>Residente urbano</option>
+              <option>Experto/Educador</option>
+              <option>Emprendedor</option>
+              <option>Institución</option>
+            </select>
+            <small class="error-message"></small>
+          </div>
+          <div class="form-row">
+            <label for="subject">Asunto</label>
+            <input id="subject" name="subject" type="text" placeholder="Quiero conocer EcoRaíz" required />
+            <small class="error-message"></small>
+          </div>
+          <div class="form-row">
+            <label for="message">Mensaje</label>
+            <textarea id="message" name="message" rows="5" placeholder="Cuéntanos cómo podemos ayudarte" required></textarea>
+            <small class="error-message"></small>
+          </div>
+          <button class="btn btn-primary form-submit" type="submit">Enviar mensaje</button>
+          <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer compact-footer">
+    <div class="container footer-bottom">
+      <small>© 2026 EcoRay Group. Tecnología sostenible para cultivos urbanos.</small>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
