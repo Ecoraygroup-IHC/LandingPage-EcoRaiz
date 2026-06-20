@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Dashboard frontend de EcoRaíz con funcionalidades básicas por segmento." />
+  <title>EcoRaíz | Dashboard</title>
+  
+  <link rel="icon" href="favicon.ico" type="image/x-icon" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&family=Nunito:wght@400;500;600;700&family=Poppins:wght@600;700;800&family=Raleway:wght@600;700&display=swap" rel="stylesheet" />
+  <script>
+    (function () {
+      const savedTheme = localStorage.getItem("ecoraiz-theme");
+      document.documentElement.setAttribute("data-theme", savedTheme || "light");
+    })();
+  </script>
+  <link rel="stylesheet" href="assets/styles/styles.css" />
+  <link rel="stylesheet" href="assets/styles/dashboard.css" />
+</head>
+<body class="dashboard-body">
+  <div class="dashboard-shell">
+    <aside class="sidebar" aria-label="Navegación del dashboard">
+      <a class="brand sidebar-brand" href="index.html">
+        <img src="assets/images/logo.svg" alt="Logo EcoRaíz" class="brand-logo" />
+        <span>EcoRaíz</span>
+      </a>
+      <nav class="sidebar-nav">
+        <a class="is-active" href="#inicio" data-section-link="inicio">🏡 Inicio</a>
+        <a href="#cultivos" data-section-link="cultivos">🪴 Cultivos</a>
+        <a href="#alertas" data-section-link="alertas">⚠️ Alertas</a>
+        <a href="#analisis" data-section-link="analisis">📈 Análisis</a>
+        <a href="#acciones" data-section-link="acciones">✅ Acciones</a>
+        <a href="#reportes" data-section-link="reportes">📄 Reportes</a>
+      </nav>
+      <div class="sidebar-note">
+        <span>Frontend demo</span>
+        <p>Datos simulados con localStorage.</p>
+      </div>
+    </aside>
+
+    <div class="dashboard-main">
+      <header class="dashboard-topbar">
+        <button class="mobile-sidebar-toggle" type="button" aria-label="Abrir navegación">☰</button>
+        <div>
+          <p class="topbar-kicker" id="profile-kicker">Dashboard</p>
+          <h1 id="dashboard-title">EcoRaíz</h1>
+        </div>
+        <div class="topbar-actions">
+          <span class="profile-pill" id="profile-pill">Perfil</span>
+          <button class="theme-switch" type="button" data-theme-toggle aria-label="Cambiar tema" aria-pressed="false">
+            <span class="theme-switch__knob" aria-hidden="true"><span class="theme-switch__knob-icon">☀️</span></span>
+          </button>
+          <button class="btn btn-secondary btn-small" type="button" id="logout-btn">Cerrar sesión</button>
+        </div>
+      </header>
+
+      <main class="dashboard-content">
+        <section class="dashboard-hero-card" id="inicio">
+          <div>
+            <span class="eyebrow" id="segment-label">Segmento</span>
+            <h2 id="welcome-title">Bienvenido a EcoRaíz</h2>
+            <p id="welcome-copy">Visualiza indicadores principales y actúa antes de que tus cultivos se deterioren.</p>
+          </div>
+          <div class="hero-actions dashboard-hero-actions">
+            <button class="btn btn-primary" type="button" id="open-add-modal">Agregar registro</button>
+            <button class="btn btn-secondary" type="button" id="simulate-alert">Simular alerta</button>
+          </div>
+        </section>
+
+        <section class="kpi-grid" aria-label="Indicadores principales" id="kpi-grid"></section>
+
+        <section class="dashboard-grid two-columns" id="alertas">
+          <article class="panel-card dash-panel">
+            <div class="panel-heading">
+              <div>
+                <span class="eyebrow">Alertas preventivas</span>
+                <h2>Prioridad de atención</h2>
+              </div>
+              <span class="counter-badge" id="alert-count">0 activas</span>
+            </div>
+            <div class="alert-list" id="alert-list"></div>
+          </article>
+
+          <article class="panel-card dash-panel" id="acciones">
+            <div class="panel-heading">
+              <div>
+                <span class="eyebrow">Recomendaciones</span>
+                <h2>Acciones sugeridas</h2>
+              </div>
+            </div>
+            <div class="action-list" id="action-list"></div>
+          </article>
+        </section>
+
+        <section class="panel-card dash-panel" id="cultivos">
+          <div class="panel-heading panel-heading--with-controls">
+            <div>
+              <span class="eyebrow" id="items-eyebrow">Cultivos</span>
+              <h2 id="items-title">Mis plantas</h2>
+            </div>
+            <div class="panel-controls">
+              <input class="dash-search" id="search-input" type="search" placeholder="Buscar por nombre..." />
+              <select class="dash-filter" id="status-filter" aria-label="Filtrar por estado">
+                <option value="all">Todos los estados</option>
+                <option value="healthy">Saludable</option>
+                <option value="warning">Advertencia</option>
+                <option value="critical">Crítico</option>
+              </select>
+            </div>
+          </div>
+          <div class="plant-grid" id="item-grid"></div>
+        </section>
+
+        <section class="dashboard-grid two-columns" id="analisis">
+          <article class="panel-card dash-panel">
+            <div class="panel-heading">
+              <div>
+                <span class="eyebrow">Variables ambientales</span>
+                <h2 id="chart-title">Evolución semanal</h2>
+              </div>
+            </div>
+            <div class="chart-tabs" id="chart-tabs"></div>
+            <div class="chart-card">
+              <svg class="line-chart" id="line-chart" viewBox="0 0 420 180" role="img" aria-label="Gráfico histórico simulado"></svg>
+              <div class="chart-axis"><span>Lun</span><span>Mar</span><span>Mié</span><span>Jue</span><span>Vie</span><span>Sáb</span><span>Dom</span></div>
+            </div>
+          </article>
+
+          <article class="panel-card dash-panel">
+            <div class="panel-heading">
+              <div>
+                <span class="eyebrow" id="detail-eyebrow">Detalle</span>
+                <h2 id="detail-title">Resumen técnico</h2>
+              </div>
+            </div>
+            <div class="detail-module" id="detail-module"></div>
+          </article>
+        </section>
+
+        <section class="panel-card dash-panel" id="reportes">
+          <div class="panel-heading panel-heading--with-controls">
+            <div>
+              <span class="eyebrow">Reportes</span>
+              <h2>Resumen exportable</h2>
+            </div>
+            <button class="btn btn-primary btn-small" type="button" id="export-btn">Exportar reporte</button>
+          </div>
+          <div class="report-preview" id="report-preview"></div>
+        </section>
+      </main>
+    </div>
+  </div>
+
+  <div class="modal-backdrop" id="modal-backdrop" hidden>
+    <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+      <div class="modal-header">
+        <div>
+          <span class="eyebrow">Nuevo registro</span>
+          <h2 id="modal-title">Agregar cultivo</h2>
+        </div>
+        <button class="modal-close" type="button" id="modal-close" aria-label="Cerrar modal">×</button>
+      </div>
+      <form id="add-form" class="modal-form" novalidate></form>
+    </div>
+  </div>
+
+  <script src="assets/scripts/main.js"></script>
+  <script src="assets/scripts/dashboard.js"></script>
+</body>
+</html>
