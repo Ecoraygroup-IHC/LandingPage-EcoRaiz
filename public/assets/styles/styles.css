@@ -1032,6 +1032,34 @@ details p {
   padding: var(--space-4);
 }
 
+
+.forgot-password {
+  justify-self: start;
+  margin-top: -4px;
+  border: 0;
+  background: transparent;
+  color: var(--green-dark);
+  font-family: "Montserrat", sans-serif;
+  font-weight: 900;
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.forgot-password:hover,
+.forgot-password:focus-visible {
+  color: var(--green);
+  outline: none;
+}
+
+.contact-help {
+  padding-top: 0;
+}
+
+.contact-help .faq-intro p {
+  color: var(--muted);
+}
+
 .form-row {
   display: grid;
   gap: 6px;

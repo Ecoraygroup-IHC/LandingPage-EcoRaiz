@@ -5,6 +5,7 @@ const formSubtitle = document.querySelector('#form-subtitle');
 const authStatus = document.querySelector('#auth-status');
 const registerOnlyRows = document.querySelectorAll('[data-register-only]');
 const demoButtons = document.querySelectorAll('[data-demo-profile]');
+const forgotPasswordButton = document.querySelector('#forgot-password');
 
 let authMode = 'register';
 
@@ -133,4 +134,17 @@ demoButtons.forEach((button) => {
     const profile = button.dataset.demoProfile;
     createSession({ name: profileLabels[profile], email: 'demo@ecoraiz.com', profile });
   });
+});
+
+forgotPasswordButton?.addEventListener('click', () => {
+  if (!authStatus) return;
+  const email = authForm?.email?.value?.trim();
+  if (email && validateEmail(email)) {
+    authStatus.textContent = `Te enviaremos instrucciones de recuperación a ${email}.`;
+    authStatus.classList.remove('error');
+    return;
+  }
+  authStatus.textContent = 'Ingresa un correo válido para recuperar tu contraseña.';
+  authStatus.classList.add('error');
+  authForm?.email?.focus();
 });

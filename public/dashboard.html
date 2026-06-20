@@ -94,61 +94,85 @@
           </article>
         </section>
 
-        <section class="panel-card dash-panel" id="cultivos">
-          <div class="panel-heading panel-heading--with-controls">
-            <div>
-              <span class="eyebrow" id="items-eyebrow">Cultivos</span>
-              <h2 id="items-title">Mis plantas</h2>
-            </div>
-            <div class="panel-controls">
-              <input class="dash-search" id="search-input" type="search" placeholder="Buscar por nombre..." />
-              <select class="dash-filter" id="status-filter" aria-label="Filtrar por estado">
-                <option value="all">Todos los estados</option>
-                <option value="healthy">Saludable</option>
-                <option value="warning">Advertencia</option>
-                <option value="critical">Crítico</option>
-              </select>
-            </div>
-          </div>
-          <div class="plant-grid" id="item-grid"></div>
-        </section>
-
-        <section class="dashboard-grid two-columns" id="analisis">
-          <article class="panel-card dash-panel">
-            <div class="panel-heading">
+        <details class="dashboard-disclosure" id="cultivos" open>
+          <summary>
+            <span>
+              <strong>Nivel 2 · Gestión de cultivos</strong>
+              <small>Busca, filtra y revisa el detalle de tus plantas.</small>
+            </span>
+          </summary>
+          <section class="panel-card dash-panel">
+            <div class="panel-heading panel-heading--with-controls">
               <div>
-                <span class="eyebrow">Variables ambientales</span>
-                <h2 id="chart-title">Evolución semanal</h2>
+                <span class="eyebrow" id="items-eyebrow">Cultivos</span>
+                <h2 id="items-title">Mis plantas</h2>
+              </div>
+              <div class="panel-controls">
+                <input class="dash-search" id="search-input" type="search" placeholder="Buscar por nombre..." />
+                <select class="dash-filter" id="status-filter" aria-label="Filtrar por estado">
+                  <option value="all">Todos los estados</option>
+                  <option value="healthy">Saludable</option>
+                  <option value="warning">Advertencia</option>
+                  <option value="critical">Crítico</option>
+                </select>
               </div>
             </div>
-            <div class="chart-tabs" id="chart-tabs"></div>
-            <div class="chart-card">
-              <svg class="line-chart" id="line-chart" viewBox="0 0 420 180" role="img" aria-label="Gráfico histórico simulado"></svg>
-              <div class="chart-axis"><span>Lun</span><span>Mar</span><span>Mié</span><span>Jue</span><span>Vie</span><span>Sáb</span><span>Dom</span></div>
-            </div>
-          </article>
+            <div class="plant-grid" id="item-grid"></div>
+          </section>
+        </details>
 
-          <article class="panel-card dash-panel">
-            <div class="panel-heading">
-              <div>
-                <span class="eyebrow" id="detail-eyebrow">Detalle</span>
-                <h2 id="detail-title">Resumen técnico</h2>
+        <details class="dashboard-disclosure" id="analisis">
+          <summary>
+            <span>
+              <strong>Nivel 3 · Análisis avanzado</strong>
+              <small>Expande esta sección para revisar gráficos y comparaciones.</small>
+            </span>
+          </summary>
+          <section class="dashboard-grid two-columns">
+            <article class="panel-card dash-panel">
+              <div class="panel-heading">
+                <div>
+                  <span class="eyebrow">Variables ambientales</span>
+                  <h2 id="chart-title">Evolución semanal</h2>
+                </div>
               </div>
-            </div>
-            <div class="detail-module" id="detail-module"></div>
-          </article>
-        </section>
+              <div class="chart-tabs" id="chart-tabs"></div>
+              <div class="chart-card">
+                <svg class="line-chart" id="line-chart" viewBox="0 0 420 180" role="img" aria-label="Gráfico histórico simulado"></svg>
+                <div class="chart-axis"><span>Lun</span><span>Mar</span><span>Mié</span><span>Jue</span><span>Vie</span><span>Sáb</span><span>Dom</span></div>
+              </div>
+            </article>
 
-        <section class="panel-card dash-panel" id="reportes">
-          <div class="panel-heading panel-heading--with-controls">
-            <div>
-              <span class="eyebrow">Reportes</span>
-              <h2>Resumen exportable</h2>
+            <article class="panel-card dash-panel">
+              <div class="panel-heading">
+                <div>
+                  <span class="eyebrow" id="detail-eyebrow">Detalle</span>
+                  <h2 id="detail-title">Resumen técnico</h2>
+                </div>
+              </div>
+              <div class="detail-module" id="detail-module"></div>
+            </article>
+          </section>
+        </details>
+
+        <details class="dashboard-disclosure" id="reportes">
+          <summary>
+            <span>
+              <strong>Nivel 4 · Reportes</strong>
+              <small>Expande esta sección solo cuando necesites exportar información.</small>
+            </span>
+          </summary>
+          <section class="panel-card dash-panel">
+            <div class="panel-heading panel-heading--with-controls">
+              <div>
+                <span class="eyebrow">Reportes</span>
+                <h2>Resumen exportable</h2>
+              </div>
+              <button class="btn btn-primary btn-small" type="button" id="export-btn">Exportar reporte</button>
             </div>
-            <button class="btn btn-primary btn-small" type="button" id="export-btn">Exportar reporte</button>
-          </div>
-          <div class="report-preview" id="report-preview"></div>
-        </section>
+            <div class="report-preview" id="report-preview"></div>
+          </section>
+        </details>
       </main>
     </div>
   </div>
@@ -163,6 +187,23 @@
         <button class="modal-close" type="button" id="modal-close" aria-label="Cerrar modal">×</button>
       </div>
       <form id="add-form" class="modal-form" novalidate></form>
+    </div>
+  </div>
+
+  <div class="modal-backdrop" id="logout-backdrop" hidden>
+    <div class="modal-card logout-modal" role="dialog" aria-modal="true" aria-labelledby="logout-title" aria-describedby="logout-description">
+      <div class="modal-header">
+        <div>
+          <span class="eyebrow">Prevención de errores</span>
+          <h2 id="logout-title">¿Deseas cerrar sesión?</h2>
+        </div>
+        <button class="modal-close" type="button" id="logout-cancel-x" aria-label="Cancelar cierre de sesión">×</button>
+      </div>
+      <p id="logout-description">Si cierras sesión, volverás a la pantalla de acceso demo. Los registros guardados localmente se mantendrán para futuras pruebas.</p>
+      <div class="modal-actions">
+        <button class="btn btn-secondary" type="button" id="logout-cancel">Cancelar</button>
+        <button class="btn btn-primary" type="button" id="logout-confirm">Sí, cerrar sesión</button>
+      </div>
     </div>
   </div>
 

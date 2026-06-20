@@ -152,6 +152,10 @@ const dom = {
   reportPreview: document.querySelector('#report-preview'),
   exportBtn: document.querySelector('#export-btn'),
   logoutBtn: document.querySelector('#logout-btn'),
+  logoutBackdrop: document.querySelector('#logout-backdrop'),
+  logoutCancel: document.querySelector('#logout-cancel'),
+  logoutCancelX: document.querySelector('#logout-cancel-x'),
+  logoutConfirm: document.querySelector('#logout-confirm'),
   modalBackdrop: document.querySelector('#modal-backdrop'),
   modalTitle: document.querySelector('#modal-title'),
   modalClose: document.querySelector('#modal-close'),
@@ -199,6 +203,23 @@ function loadState() {
 
 function saveState() {
   localStorage.setItem(`ecoraiz-dashboard-state-${currentProfile}`, JSON.stringify(state));
+}
+
+function openLogoutModal() {
+  if (!dom.logoutBackdrop) return;
+  dom.logoutBackdrop.hidden = false;
+  dom.logoutConfirm?.focus();
+}
+
+function closeLogoutModal() {
+  if (!dom.logoutBackdrop) return;
+  dom.logoutBackdrop.hidden = true;
+  dom.logoutBtn?.focus();
+}
+
+function confirmLogout() {
+  localStorage.removeItem('ecoraiz-session');
+  window.location.href = 'app.html';
 }
 
 function activeAlerts() {
@@ -749,15 +770,24 @@ dom.addForm?.addEventListener('submit', handleAddSubmit);
 dom.searchInput?.addEventListener('input', renderItems);
 dom.statusFilter?.addEventListener('change', renderItems);
 dom.exportBtn?.addEventListener('click', exportReport);
-dom.logoutBtn?.addEventListener('click', () => {
-  localStorage.removeItem('ecoraiz-session');
-  window.location.href = 'app.html';
+dom.logoutBtn?.addEventListener('click', openLogoutModal);
+dom.logoutCancel?.addEventListener('click', closeLogoutModal);
+dom.logoutCancelX?.addEventListener('click', closeLogoutModal);
+dom.logoutConfirm?.addEventListener('click', confirmLogout);
+dom.logoutBackdrop?.addEventListener('click', (event) => {
+  if (event.target === dom.logoutBackdrop) closeLogoutModal();
 });
 dom.mobileSidebarToggle?.addEventListener('click', () => dom.sidebar.classList.toggle('is-open'));
+document.addEventListener('keydown', (event) => {
+  if (event.key === 'Escape' && dom.logoutBackdrop && !dom.logoutBackdrop.hidden) closeLogoutModal();
+});
 document.querySelectorAll('.sidebar-nav a').forEach((link) => {
   link.addEventListener('click', () => {
     document.querySelectorAll('.sidebar-nav a').forEach((item) => item.classList.remove('is-active'));
     link.classList.add('is-active');
+    const targetId = link.getAttribute('href')?.replace('#', '');
+    const targetPanel = targetId ? document.getElementById(targetId) : null;
+    if (targetPanel?.tagName === 'DETAILS') targetPanel.open = true;
     dom.sidebar?.classList.remove('is-open');
   });
 });
