@@ -796,6 +796,57 @@
   margin-top: 8px;
 }
 
+
+/* UX audit fixes: priority levels, collapsible sections and logout confirmation */
+.dashboard-disclosure {
+  display: grid;
+  gap: 16px;
+  border-radius: 28px;
+  background: rgba(255, 255, 255, 0.76);
+  border: 1px solid rgba(76, 175, 80, 0.16);
+  box-shadow: var(--shadow-soft);
+  overflow: hidden;
+}
+
+.dashboard-disclosure + .dashboard-disclosure {
+  margin-top: 22px;
+}
+
+.dashboard-disclosure > summary {
+  align-items: center;
+  padding: 18px 22px;
+  color: var(--green-dark);
+}
+
+.dashboard-disclosure > summary span {
+  display: grid;
+  gap: 4px;
+}
+
+.dashboard-disclosure > summary strong {
+  font-family: "Poppins", sans-serif;
+}
+
+.dashboard-disclosure > summary small {
+  color: var(--muted);
+  font-weight: 700;
+}
+
+.dashboard-disclosure > .panel-card,
+.dashboard-disclosure > .dashboard-grid {
+  margin: 0 16px 16px;
+}
+
+.logout-modal p {
+  color: var(--muted);
+  margin-bottom: 18px;
+}
+
+html[data-theme="dark"] .dashboard-disclosure {
+  background: rgba(26, 51, 35, 0.86);
+  border-color: rgba(165, 214, 167, 0.18);
+}
+
 /* Dark mode additions */
 html[data-theme="dark"] .auth-body,
 html[data-theme="dark"] .dashboard-body {
