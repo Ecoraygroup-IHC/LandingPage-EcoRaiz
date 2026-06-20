@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Acceso demo a EcoRaíz para probar dashboards por segmento." />
+  <title>EcoRaíz | Acceso al sistema</title>
+  
+  <link rel="icon" href="favicon.ico" type="image/x-icon" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&family=Nunito:wght@400;500;600;700&family=Poppins:wght@600;700;800&family=Raleway:wght@600;700&display=swap" rel="stylesheet" />
+  <script>
+    (function () {
+      const savedTheme = localStorage.getItem("ecoraiz-theme");
+      document.documentElement.setAttribute("data-theme", savedTheme || "light");
+    })();
+  </script>
+  <link rel="stylesheet" href="assets/styles/styles.css" />
+  <link rel="stylesheet" href="assets/styles/dashboard.css" />
+</head>
+<body class="auth-body">
+  <header class="auth-header">
+    <a class="brand" href="index.html" aria-label="Volver a EcoRaíz">
+      <img src="assets/images/logo.svg" alt="Logo EcoRaíz" class="brand-logo" />
+      <span>EcoRaíz</span>
+    </a>
+    <div class="auth-header__actions">
+      <a class="auth-link" href="index.html">Volver a la landing</a>
+      <button class="theme-switch" type="button" data-theme-toggle aria-label="Cambiar tema" aria-pressed="false">
+        <span class="theme-switch__knob" aria-hidden="true"><span class="theme-switch__knob-icon">☀️</span></span>
+      </button>
+    </div>
+  </header>
+
+  <main class="auth-page">
+    <section class="auth-hero" aria-labelledby="auth-title">
+      <span class="eyebrow">Demo funcional frontend</span>
+      <h1 id="auth-title">Ingresa a EcoRaíz y prueba un dashboard según tu segmento</h1>
+      <p>Elige un tipo de usuario para ver funcionalidades básicas basadas en historias de usuario: alertas, estado de cultivos, recomendaciones, variables ambientales e inventario comercial.</p>
+      <div class="auth-feature-list" aria-label="Funcionalidades incluidas">
+        <article>
+          <span>US-GEN-01</span>
+          <strong>Registro de cuenta</strong>
+        </article>
+        <article>
+          <span>US-GEN-04</span>
+          <strong>Selección de perfil</strong>
+        </article>
+        <article>
+          <span>Dashboard</span>
+          <strong>Vista adaptada por segmento</strong>
+        </article>
+      </div>
+    </section>
+
+    <section class="auth-card" aria-labelledby="form-title">
+      <div class="auth-tabs" role="tablist" aria-label="Modo de acceso">
+        <button class="auth-tab is-active" type="button" data-auth-tab="register">Registrarse</button>
+        <button class="auth-tab" type="button" data-auth-tab="login">Iniciar sesión</button>
+      </div>
+
+      <div class="auth-card__heading">
+        <h2 id="form-title">Crear acceso demo</h2>
+        <p id="form-subtitle">Completa datos básicos y selecciona el perfil que quieres visualizar.</p>
+      </div>
+
+      <form class="auth-form" id="auth-form" novalidate>
+        <div class="form-row" data-register-only>
+          <label for="name">Nombre</label>
+          <input id="name" name="name" type="text" placeholder="Ej. Giovanni" autocomplete="name" />
+          <small class="error-message"></small>
+        </div>
+
+        <div class="form-row">
+          <label for="email">Correo electrónico</label>
+          <input id="email" name="email" type="email" placeholder="usuario@ecoraiz.com" autocomplete="email" />
+          <small class="error-message"></small>
+        </div>
+
+        <div class="form-row">
+          <label for="password">Contraseña</label>
+          <input id="password" name="password" type="password" placeholder="Mínimo 6 caracteres" autocomplete="current-password" />
+          <small class="error-message"></small>
+        </div>
+
+        <div class="form-row">
+          <label for="profile">Tipo de usuario</label>
+          <select id="profile" name="profile">
+            <option value="resident">Residente urbano</option>
+            <option value="expert">Experto ambiental / Educador</option>
+            <option value="entrepreneur">Emprendedor de plantas</option>
+          </select>
+          <small class="error-message"></small>
+        </div>
+
+        <button class="btn btn-primary auth-submit" type="submit">Entrar al dashboard</button>
+        <p class="form-status" id="auth-status" role="status"></p>
+      </form>
+
+      <div class="quick-demo">
+        <p>También puedes entrar directo como demo:</p>
+        <div class="quick-demo__grid">
+          <button type="button" data-demo-profile="resident">🏠 Residente</button>
+          <button type="button" data-demo-profile="expert">🔬 Experto</button>
+          <button type="button" data-demo-profile="entrepreneur">🪴 Emprendedor</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="assets/scripts/main.js"></script>
+  <script src="assets/scripts/app.js"></script>
+</body>
+</html>
