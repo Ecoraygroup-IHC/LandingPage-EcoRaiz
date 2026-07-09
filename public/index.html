@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="EcoRaíz monitors indoor crops and turns environmental data into simple recommendations to keep plants healthy." />
+  <title>EcoRaíz | Sustainable technology for urban crops</title>
+  
+  <link rel="icon" href="favicon.ico" type="image/x-icon" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&family=Nunito:wght@400;500;600;700&family=Poppins:wght@600;700;800&family=Raleway:wght@600;700&display=swap" rel="stylesheet" />
+  <script>
+    (function () {
+      const savedTheme = localStorage.getItem("ecoraiz-theme");
+      document.documentElement.setAttribute("data-theme", savedTheme || "light");
+    })();
+  </script>
+  <link rel="stylesheet" href="assets/styles/styles.css" />
+  <noscript><style>.reveal{opacity:1!important;transform:none!important;}</style></noscript>
+</head>
+<body>
+  <header class="site-header" id="inicio">
+    <nav class="navbar container" aria-label="Main navigation">
+      <a class="brand" href="index.html" aria-label="EcoRaíz home">
+        <img src="assets/images/logo.svg" alt="EcoRaíz logo" class="brand-logo" />
+        <span>EcoRaíz</span>
+      </a>
+
+      <button class="menu-toggle" type="button" aria-label="Open menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <div class="nav-menu" id="nav-menu">
+        <a href="#inicio">Home</a>
+        <a href="#perfiles">Profiles</a>
+        <a href="#como-funciona">How it works</a>
+        <a href="#videos">Videos</a>
+        <a href="#demo">Demo</a>
+        <a href="#confianza">Trust</a>
+        <a href="#planes">Plans</a>
+        <a href="contacto.html">Contact</a>
+        <button class="theme-switch" type="button" data-theme-toggle aria-label="Switch to dark mode" aria-pressed="false">
+          <span class="theme-switch__knob" aria-hidden="true"><span class="theme-switch__knob-icon">☀️</span></span>
+        </button>
+        <a class="btn btn-primary nav-cta" href="#perfiles">Choose my profile</a>
+      </div>
+    </nav>
+  </header>
+
+  <aside class="sticky-conversion-bar" aria-label="Quick demo access">
+    <p>Not sure what your plant needs?</p>
+    <a class="btn btn-primary btn-compact" href="#perfiles">Choose your profile and try a recommendation</a>
+  </aside>
+
+  <main>
+    <section class="hero section-pad" aria-labelledby="hero-title">
+      <div class="hero-bg-orb orb-one" aria-hidden="true"></div>
+      <div class="hero-bg-orb orb-two" aria-hidden="true"></div>
+      <div class="container hero-grid">
+        <div class="hero-content reveal">
+          <span class="eyebrow hero-eyebrow">Monitoring + actionable recommendations</span>
+          <h1 id="hero-title">Detect plant risks and know what to do today</h1>
+          <p class="hero-lead">EcoRaíz turns humidity, light and temperature into simple alerts and concrete actions for residents, experts and plant entrepreneurs.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary btn-hero" href="#perfiles">Choose my profile</a>
+            <a class="btn btn-secondary" href="#demo">View the demo dashboard</a>
+          </div>
+          <p class="cta-microcopy">Start with your user type and see a tailored recommendation in seconds.</p>
+
+          <div class="hero-entry-points" aria-label="Quick profile entry points">
+            <a href="app.html?profile=resident" class="entry-card">
+              <span>🏠</span>
+              <strong>I am a resident</strong>
+              <small>Simple care without technical terms</small>
+            </a>
+            <a href="app.html?profile=expert" class="entry-card">
+              <span>🔬</span>
+              <strong>I am an expert</strong>
+              <small>Data, analysis and reports</small>
+            </a>
+            <a href="app.html?profile=entrepreneur" class="entry-card">
+              <span>🪴</span>
+              <strong>I am an entrepreneur</strong>
+              <small>Live inventory and losses</small>
+            </a>
+          </div>
+
+          <div class="trust-row" aria-label="Trust signals">
+            <span>✓ 3 defined profiles</span>
+            <span>✓ Functional frontend demo</span>
+            <span>✓ Prioritized recommendations</span>
+          </div>
+        </div>
+
+        <div class="hero-visual reveal" aria-label="Actionable EcoRaíz preview">
+          <div class="phone-card action-phone-card">
+            <div class="phone-top">
+              <span></span>
+              <span></span>
+            </div>
+            <div class="mockup-screen">
+              <div class="mockup-header">
+                <span>Today's dashboard</span>
+                <strong>Demo</strong>
+              </div>
+              <article class="alert-preview critical-preview">
+                <span class="tag tag-error">Risk detected</span>
+                <h3>Fern with low humidity</h3>
+                <p>The substrate is below the recommended range.</p>
+              </article>
+              <div class="metric-strip">
+                <div><span>💧</span><strong>34%</strong><small>Humidity</small></div>
+                <div><span>🌡️</span><strong>25°C</strong><small>Temp.</small></div>
+                <div><span>☀️</span><strong>430</strong><small>Light</small></div>
+              </div>
+              <article class="recommendation-card priority-action">
+                <span>Recommended action</span>
+                <p>Add water today and move the plant away from direct light.</p>
+                <button type="button" aria-label="Mark action as completed">Mark as done</button>
+              </article>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-pad problem" id="problema" aria-labelledby="problem-title">
+      <div class="container">
+        <div class="section-heading reveal">
+          <span class="eyebrow">Problem</span>
+          <h2 id="problem-title">Why do indoor plants die?</h2>
+          <p>Many plants deteriorate because warning signs appear late, and general advice does not consider the real microclimate of each home, classroom or business.</p>
+        </div>
+        <div class="cards-grid problem-grid">
+          <article class="info-card reveal">
+            <span class="card-icon">⏱️</span>
+            <h3>Lack of monitoring</h3>
+            <p>Users do not always check their plants on time, and environmental changes can go unnoticed.</p>
+          </article>
+          <article class="info-card reveal">
+            <span class="card-icon">💦</span>
+            <h3>Incorrect watering</h3>
+            <p>Too much or too little water affects plant health and can waste resources.</p>
+          </article>
+          <article class="info-card reveal">
+            <span class="card-icon">🌤️</span>
+            <h3>Limited light</h3>
+            <p>Enclosed urban spaces do not always provide the right exposure for each species.</p>
+          </article>
+          <article class="info-card reveal">
+            <span class="card-icon">🔎</span>
+            <h3>Generic information</h3>
+            <p>Tutorials do not always explain what to do according to the user's real environment.</p>
+          </article>
+          <article class="info-card reveal">
+            <span class="card-icon">📅</span>
+            <h3>Lack of time</h3>
+            <p>Daily routines make constant and organized supervision difficult.</p>
+          </article>
+          <article class="info-card reveal">
+            <span class="card-icon">⚠️</span>
+            <h3>Late deterioration</h3>
+            <p>When leaves change color or wilt, it can already be difficult to recover the plant.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-pad solution" id="solucion" aria-labelledby="solution-title">
+      <div class="container solution-grid">
+        <div class="solution-content reveal">
+          <span class="eyebrow">Solution</span>
+          <h2 id="solution-title">EcoRaíz turns environmental data into simple actions</h2>
+          <p>Our platform helps users register, visualize and monitor crop status through clear indicators, preventive alerts and easy-to-apply recommendations.</p>
+          <a class="btn btn-secondary" href="#funcionalidades">Explore features</a>
+        </div>
+        <div class="recommendation-list reveal" aria-label="Recommendation examples">
+          <article>
+            <span class="tag tag-success">Action</span>
+            <p>Add water today.</p>
+          </article>
+          <article>
+            <span class="tag tag-warning">Prevention</span>
+            <p>Move the plant to an area with more light.</p>
+          </article>
+          <article>
+            <span class="tag tag-warning">Humidity</span>
+            <p>Humidity is below the recommended level.</p>
+          </article>
+          <article>
+            <span class="tag tag-error">Critical</span>
+            <p>This plant requires immediate attention.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-pad benefits" id="perfiles" aria-labelledby="profiles-title">
+      <div class="container">
+        <div class="section-heading reveal">
+          <span class="eyebrow">Early personalization</span>
+          <h2 id="profiles-title">Choose your profile first, then EcoRaíz prioritizes what you need</h2>
+          <p>The landing page no longer shows everything at once: users can enter by segment to reduce cognitive load and follow the right flow.</p>
+        </div>
+        <div class="segment-grid interactive-segment-grid">
+          <article class="segment-card reveal">
+            <div class="segment-icon">🏠</div>
+            <h3>Urban resident</h3>
+            <p>Wants to know whether to water, move or care for a plant without reading technical information.</p>
+            <ul>
+              <li>Simple alerts.</li>
+              <li>Recommended action of the day.</li>
+              <li>Visual status per plant.</li>
+            </ul>
+            <a class="btn btn-secondary segment-cta" href="app.html?profile=resident">Enter as resident</a>
+          </article>
+          <article class="segment-card featured reveal">
+            <div class="segment-icon">🔬</div>
+            <h3>Expert or educator</h3>
+            <p>Needs to compare microclimates, review variables and generate evidence for classes or analysis.</p>
+            <ul>
+              <li>Environmental variables.</li>
+              <li>Historical charts.</li>
+              <li>Exportable reports.</li>
+            </ul>
+            <a class="btn btn-light segment-cta" href="app.html?profile=expert">Enter as expert</a>
+          </article>
+          <article class="segment-card reveal">
+            <div class="segment-icon">🪴</div>
+            <h3>Plant entrepreneur</h3>
+            <p>Seeks to protect live inventory, prioritize critical batches and reduce commercial losses.</p>
+            <ul>
+              <li>Live inventory.</li>
+              <li>Risk per batch.</li>
+              <li>Corrective actions.</li>
+            </ul>
+            <a class="btn btn-secondary segment-cta" href="app.html?profile=entrepreneur">Enter as entrepreneur</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-pad features" id="funcionalidades" aria-labelledby="features-title">
+      <div class="container">
+        <div class="section-heading reveal">
+          <span class="eyebrow">Progressive disclosure</span>
+          <h2 id="features-title">Essentials first; details open when the user needs them</h2>
+          <p>To avoid information overload, features are grouped by purpose and shown progressively.</p>
+        </div>
+        <div class="progressive-grid reveal">
+          <details class="feature-disclosure" open>
+            <summary>1. Detect the problem</summary>
+            <div class="feature-list-compact">
+              <span>💧 Humidity</span>
+              <span>☀️ Light</span>
+              <span>🌡️ Temperature</span>
+              <span>🟢 General status</span>
+            </div>
+          </details>
+          <details class="feature-disclosure">
+            <summary>2. Prioritize attention</summary>
+            <div class="feature-list-compact">
+              <span>🔔 Preventive alerts</span>
+              <span>⚠️ Critical risk</span>
+              <span>📌 Priority order</span>
+            </div>
+          </details>
+          <details class="feature-disclosure">
+            <summary>3. Act and record</summary>
+            <div class="feature-list-compact">
+              <span>✨ Recommendations</span>
+              <span>✅ Completed actions</span>
+              <span>📝 Care history</span>
+            </div>
+          </details>
+          <details class="feature-disclosure">
+            <summary>4. Analyze and share</summary>
+            <div class="feature-list-compact">
+              <span>📊 Visual dashboard</span>
+              <span>📈 Charts</span>
+              <span>📄 Reports</span>
+              <span>🧾 Commercial inventory</span>
+            </div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-pad how" id="como-funciona" aria-labelledby="how-title">
+      <div class="container">
+        <div class="section-heading reveal">
+          <span class="eyebrow">How it works</span>
+          <h2 id="how-title">Care for your crops in 4 steps</h2>
+        </div>
+        <div class="steps">
+          <article class="step-card reveal"><span>1</span><h3>Register</h3><p>Add your plant, crop or commercial batch.</p></article>
+          <article class="step-card reveal"><span>2</span><h3>Check</h3><p>Review the main environmental conditions.</p></article>
+          <article class="step-card reveal"><span>3</span><h3>Receive alerts</h3><p>Get clear preventive recommendations.</p></article>
+          <article class="step-card reveal"><span>4</span><h3>Act</h3><p>Apply actions and review progress.</p></article>
+        </div>
+      </div>
+    </section>
+
+
+
+    <section class="section-pad videos" id="videos" aria-labelledby="videos-title">
+      <div class="container">
+        <div class="section-heading reveal">
+          <span class="eyebrow">Required videos</span>
+          <h2 id="videos-title">Meet the product and the team</h2>
+          <p>Add the YouTube links for the <strong>About the Product</strong> and <strong>About the Team</strong> videos here. This section is responsive and keeps descriptive titles for accessibility.</p>
+        </div>
+
+        <div class="video-grid">
+          <article class="video-card reveal" aria-labelledby="video-product-title">
+            <div class="video-frame">
+              <!-- Replace VIDEO_ID_PRODUCT with your YouTube video ID.
+                   Ejemplo: if your link is https://www.youtube.com/watch?v=ABC123, use ABC123. -->
+              <iframe
+                src="https://www.youtube.com/embed/VIDEO_ID_PRODUCT"
+                title="EcoRaíz About the Product video"
+                loading="lazy"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen>
+              </iframe>
+            </div>
+            <div class="video-copy">
+              <span class="tag tag-success">About the Product</span>
+              <h3 id="video-product-title">What is EcoRaíz?</h3>
+              <p>Explains the problem, value proposition, user profiles and how monitoring becomes actionable recommendations.</p>
+              <a class="video-link" href="https://www.youtube.com/watch?v=VIDEO_ID_PRODUCT" target="_blank" rel="noopener noreferrer">Open video on YouTube</a>
+            </div>
+          </article>
+
+          <article class="video-card reveal" aria-labelledby="video-team-title">
+            <div class="video-frame">
+              <!-- Replace VIDEO_ID_TEAM with your YouTube video ID.
+                   Ejemplo: if your link is https://youtu.be/XYZ789, usa XYZ789. -->
+              <iframe
+                src="https://www.youtube.com/embed/VIDEO_ID_TEAM"
+                title="EcoRaíz About the Team video"
+                loading="lazy"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen>
+              </iframe>
+            </div>
+            <div class="video-copy">
+              <span class="tag tag-warning">About the Team</span>
+              <h3 id="video-team-title">EcoRay Group Team</h3>
+              <p>Presents the team members, their roles, the work process and their contributions to the EcoRaíz solution.</p>
+              <a class="video-link" href="https://www.youtube.com/watch?v=VIDEO_ID_TEAM" target="_blank" rel="noopener noreferrer">Open video on YouTube</a>
+            </div>
+          </article>
+        </div>
+
+        <div class="video-help reveal" role="note" aria-label="Instructions for adding YouTube videos">
+          <strong>How to add your videos:</strong> replace <code>VIDEO_ID_PRODUCT</code> and <code>VIDEO_ID_TEAM</code> with the real ID of each YouTube video.
+        </div>
+      </div>
+    </section>
+
+    <section class="section-pad preview" id="demo" aria-labelledby="preview-title">
+      <div class="container preview-grid">
+        <div class="preview-content reveal">
+          <span class="eyebrow">Landing + mockup consistency</span>
+          <h2 id="preview-title">What is promised is also shown in the demo</h2>
+          <p>The mockup shows the core flow exactly: environmental indicator, preventive alert, actionable recommendation and action record. The data is simulated on the frontend to represent the expected experience.</p>
+          <a class="btn btn-primary" href="app.html">Open functional demo</a>
+        </div>
+        <div class="ui-showcase reveal" aria-label="EcoRaíz screen simulation">
+          <div class="panel-card main-panel aligned-panel">
+            <div class="panel-header">
+              <span>Dashboard EcoRaíz</span>
+              <strong>Simulated data</strong>
+            </div>
+            <div class="panel-kpis">
+              <div><strong>12</strong><span>plants</span></div>
+              <div><strong>3</strong><span>alerts</span></div>
+              <div><strong>86%</strong><span>stable</span></div>
+            </div>
+            <div class="demo-flow">
+              <span>1. Monitoring</span>
+              <span>2. Alert</span>
+              <span>3. Action</span>
+            </div>
+          </div>
+          <div class="panel-card alert-panel">
+            <span class="tag tag-warning">Preventive alert</span>
+            <h3>Fern under warning</h3>
+            <p>Low humidity. Add water today and avoid direct exposure.</p>
+          </div>
+          <div class="panel-card inventory-panel">
+            <span class="tag tag-success">Action recorded</span>
+            <h3>Visible tracking</h3>
+            <p>The user can mark completed actions and review progress.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-pad pricing" id="planes" aria-labelledby="pricing-title">
+      <div class="container">
+        <div class="section-heading reveal">
+          <span class="eyebrow">Plans</span>
+          <h2 id="pricing-title">Choose the plan according to how you grow</h2>
+        </div>
+        <div class="pricing-grid">
+          <article class="price-card reveal">
+            <h3>Free</h3>
+            <p>To start caring for indoor plants.</p>
+            <div class="price">S/ 0</div>
+            <ul>
+              <li>Basic plant registration.</li>
+              <li>Simple visual dashboard.</li>
+              <li>Basic recommendations.</li>
+              <li>Visual indicators.</li>
+            </ul>
+            <a class="btn btn-secondary" href="app.html">Try EcoRaíz</a>
+          </article>
+          <article class="price-card popular reveal">
+            <span class="popular-badge">Most chosen</span>
+            <h3>Premium</h3>
+            <p>For users looking for more personalization.</p>
+            <div class="price">S/ 8.90 <small>/ month</small></div>
+            <ul>
+              <li>Extended history.</li>
+              <li>More detailed alerts.</li>
+              <li>Greater personalization.</li>
+              <li>Advanced reports.</li>
+            </ul>
+            <a class="btn btn-primary" href="app.html">Try EcoRaíz</a>
+          </article>
+          <article class="price-card reveal">
+            <h3>Institutions</h3>
+            <p>For businesses, classrooms and environmental projects.</p>
+            <div class="price">Custom</div>
+            <ul>
+              <li>Live inventory.</li>
+              <li>Commercial reports.</li>
+              <li>Batch management.</li>
+              <li>Data export.</li>
+            </ul>
+            <a class="btn btn-secondary" href="contacto.html">Request information</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-pad testimonials" id="confianza" aria-labelledby="trust-title">
+      <div class="container">
+        <div class="section-heading reveal">
+          <span class="eyebrow">Trust and validation</span>
+          <h2 id="trust-title">Visible evidence before asking the user to try the platform</h2>
+          <p>Credibility signals are added at critical points in the flow to strengthen trust in a technical product.</p>
+        </div>
+        <div class="proof-grid reveal" aria-label="Trust evidence">
+          <article class="proof-card">
+            <strong>3</strong>
+            <span>segments validated in the project</span>
+          </article>
+          <article class="proof-card">
+            <strong>Frontend demo</strong>
+            <span>navigable dashboard with simulated data</span>
+          </article>
+          <article class="proof-card">
+            <strong>UX</strong>
+            <span>guided flow to reduce cognitive load</span>
+          </article>
+        </div>
+        <div class="testimonial-grid">
+          <article class="testimonial-card reveal">
+            <p>“I quickly understand what my plant needs and what action I should take first.”</p>
+            <strong>Urban resident</strong>
+          </article>
+          <article class="testimonial-card reveal">
+            <p>“The dashboard separates data, alerts and actions, making it easier to explain the crop status.”</p>
+            <strong>Environmental educator</strong>
+          </article>
+          <article class="testimonial-card reveal">
+            <p>“It helps me prioritize risky batches before losing inventory.”</p>
+            <strong>Plant entrepreneur</strong>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-pad faq" aria-labelledby="faq-title">
+      <div class="container faq-grid">
+        <div class="faq-intro reveal">
+          <span class="eyebrow">Frequently asked questions</span>
+          <h2 id="faq-title">Resolve your questions before starting</h2>
+          <p>EcoRaíz is designed to turn technical information into clear decisions.</p>
+        </div>
+        <div class="faq-list reveal">
+          <details>
+            <summary>Do I need botany knowledge to use EcoRaíz?</summary>
+            <p>No. EcoRaíz is designed for users without technical knowledge.</p>
+          </details>
+          <details>
+            <summary>What variables does EcoRaíz monitor?</summary>
+            <p>Humidity, light, temperature and general crop status.</p>
+          </details>
+          <details>
+            <summary>Does EcoRaíz work for plant businesses?</summary>
+            <p>Yes. It helps manage live inventory, detect risks and reduce losses.</p>
+          </details>
+          <details>
+            <summary>Can I use EcoRaíz in classes or research?</summary>
+            <p>Yes. It includes visual dashboards, historical charts and reports.</p>
+          </details>
+          <details>
+            <summary>Does the app replace the user?</summary>
+            <p>No. It helps make better decisions, but the user keeps final control.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta section-pad" aria-labelledby="cta-title">
+      <div class="container cta-card reveal">
+        <h2 id="cta-title">Try the main flow: detect, recommend and act</h2>
+        <p>Choose your profile and enter a demo where alerts become concrete actions.</p>
+        <a class="btn btn-light" href="#perfiles">Choose profile now</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <a class="brand footer-brand" href="index.html">
+          <img src="assets/images/logo.svg" alt="EcoRaíz logo" class="brand-logo" />
+          <span>EcoRaíz</span>
+        </a>
+        <p>Sustainable technology for urban crops.</p>
+      </div>
+      <div>
+        <h3>EcoRay Group</h3>
+        <a href="#problema">Problem</a>
+        <a href="#perfiles">Profiles</a>
+        <a href="#videos">Videos</a>
+        <a href="#planes">Plans</a>
+      </div>
+      <div>
+        <h3>Contact</h3>
+        <a href="contacto.html">Contact form</a>
+        <a href="#faq-title">Frequently asked questions</a>
+        <a href="#inicio">Back to top</a>
+      </div>
+      <div>
+        <h3>Social media</h3>
+        <a href="#" aria-label="EcoRaíz Instagram">Instagram</a>
+        <a href="#" aria-label="EcoRaíz LinkedIn">LinkedIn</a>
+        <a href="#" aria-label="EcoRaíz YouTube">YouTube</a>
+      </div>
+    </div>
+    <div class="footer-bottom container">
+      <small>© 2026 EcoRay Group. All rights reserved.</small>
+    </div>
+  </footer>
+
+  <script src="assets/scripts/main.js"></script>
+</body>
+</html>
