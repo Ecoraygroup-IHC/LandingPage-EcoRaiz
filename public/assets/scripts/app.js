@@ -5,26 +5,44 @@ const formSubtitle = document.querySelector('#form-subtitle');
 const authStatus = document.querySelector('#auth-status');
 const registerOnlyRows = document.querySelectorAll('[data-register-only]');
 const demoButtons = document.querySelectorAll('[data-demo-profile]');
+const forgotPasswordButton = document.querySelector('#forgot-password');
 
 let authMode = 'register';
 
 const profileLabels = {
-  resident: 'Residente urbano',
-  expert: 'Experto ambiental / Educador',
-  entrepreneur: 'Emprendedor de plantas'
+  resident: 'Urban resident',
+  expert: 'Environmental expert / Educator',
+  entrepreneur: 'Plant entrepreneur'
 };
+
+
+function getProfileFromQuery() {
+  const params = new URLSearchParams(window.location.search);
+  const profile = params.get('profile');
+  return profileLabels[profile] ? profile : null;
+}
+
+function applyProfileFromQuery() {
+  const profile = getProfileFromQuery();
+  if (!profile || !authForm?.profile) return;
+  authForm.profile.value = profile;
+  if (authStatus) {
+    authStatus.textContent = `Selected profile: ${profileLabels[profile]}. You can enter the demo dashboard.`;
+    authStatus.classList.remove('error');
+  }
+}
 
 function setAuthMode(mode) {
   authMode = mode === 'login' ? 'login' : 'register';
   authTabs.forEach((tab) => tab.classList.toggle('is-active', tab.dataset.authTab === authMode));
 
   if (authMode === 'login') {
-    formTitle.textContent = 'Iniciar sesión demo';
-    formSubtitle.textContent = 'Ingresa tus datos o selecciona un perfil para entrar al dashboard.';
+    formTitle.textContent = 'Demo login';
+    formSubtitle.textContent = 'Enter your information or select a profile to access the dashboard.';
     registerOnlyRows.forEach((row) => row.style.display = 'none');
   } else {
-    formTitle.textContent = 'Crear acceso demo';
-    formSubtitle.textContent = 'Completa datos básicos y selecciona el perfil que quieres visualizar.';
+    formTitle.textContent = 'Create demo access';
+    formSubtitle.textContent = 'Complete basic information and select the profile you want to view.';
     registerOnlyRows.forEach((row) => row.style.display = 'grid');
   }
   clearAllErrors();
@@ -54,7 +72,7 @@ function clearAllErrors() {
 function createSession({ name, email, profile }) {
   const safeProfile = profileLabels[profile] ? profile : 'resident';
   const user = {
-    name: name?.trim() || 'Usuario Demo',
+    name: name?.trim() || 'Demo User',
     email: email?.trim() || 'demo@ecoraiz.com',
     profile: safeProfile,
     profileLabel: profileLabels[safeProfile],
@@ -87,38 +105,38 @@ if (authForm) {
     let isValid = true;
 
     if (authMode === 'register' && !name.trim()) {
-      setFieldError(authForm.name, 'Ingresa tu nombre.');
+      setFieldError(authForm.name, 'Enter your name.');
       isValid = false;
     }
 
     if (!email) {
-      setFieldError(authForm.email, 'Ingresa tu correo.');
+      setFieldError(authForm.email, 'Enter your email.');
       isValid = false;
     } else if (!validateEmail(email)) {
-      setFieldError(authForm.email, 'Ingresa un correo válido.');
+      setFieldError(authForm.email, 'Enter a valid email.');
       isValid = false;
     }
 
     if (!password) {
-      setFieldError(authForm.password, 'Ingresa una contraseña.');
+      setFieldError(authForm.password, 'Enter a password.');
       isValid = false;
     } else if (password.length < 6) {
-      setFieldError(authForm.password, 'Debe tener mínimo 6 caracteres.');
+      setFieldError(authForm.password, 'It must be at least 6 characters.');
       isValid = false;
     }
 
     if (!profileLabels[profile]) {
-      setFieldError(authForm.profile, 'Selecciona un tipo de usuario.');
+      setFieldError(authForm.profile, 'Select a user type.');
       isValid = false;
     }
 
     if (!isValid) {
-      authStatus.textContent = 'Revisa los campos marcados.';
+      authStatus.textContent = 'Review the marked fields.';
       authStatus.classList.add('error');
       return;
     }
 
-    authStatus.textContent = authMode === 'register' ? 'Cuenta creada correctamente. Redirigiendo...' : 'Inicio de sesión correcto. Redirigiendo...';
+    authStatus.textContent = authMode === 'register' ? 'Account created successfully. Redirecting...' : 'Login successful. Redirecting...';
     authStatus.classList.remove('error');
     setTimeout(() => createSession({ name, email, profile }), 450);
   });
@@ -133,4 +151,19 @@ demoButtons.forEach((button) => {
     const profile = button.dataset.demoProfile;
     createSession({ name: profileLabels[profile], email: 'demo@ecoraiz.com', profile });
   });
+});
+
+applyProfileFromQuery();
+
+forgotPasswordButton?.addEventListener('click', () => {
+  if (!authStatus) return;
+  const email = authForm?.email?.value?.trim();
+  if (email && validateEmail(email)) {
+    authStatus.textContent = `We will send recovery instructions to ${email}.`;
+    authStatus.classList.remove('error');
+    return;
+  }
+  authStatus.textContent = 'Enter a valid email to recover your password.';
+  authStatus.classList.add('error');
+  authForm?.email?.focus();
 });
