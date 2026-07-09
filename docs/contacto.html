@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Contact us to receive more information about EcoRaíz." />
+  <title>Contact | EcoRaíz</title>
+  
+  <link rel="icon" href="favicon.ico" type="image/x-icon" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&family=Nunito:wght@400;500;600;700&family=Poppins:wght@600;700;800&family=Raleway:wght@600;700&display=swap" rel="stylesheet" />
+  <script>
+    (function () {
+      const savedTheme = localStorage.getItem("ecoraiz-theme");
+      document.documentElement.setAttribute("data-theme", savedTheme || "light");
+    })();
+  </script>
+  <link rel="stylesheet" href="assets/styles/styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <nav class="navbar container" aria-label="Contact navigation">
+      <a class="brand" href="index.html" aria-label="Back to EcoRaíz home">
+        <img src="assets/images/logo.svg" alt="EcoRaíz logo" class="brand-logo" />
+        <span>EcoRaíz</span>
+      </a>
+      <div class="header-actions">
+        <button class="theme-switch" type="button" data-theme-toggle aria-label="Switch to dark mode" aria-pressed="false">
+          <span class="theme-switch__knob" aria-hidden="true"><span class="theme-switch__knob-icon">☀️</span></span>
+        </button>
+        <a class="btn btn-secondary" href="#ayuda-rapida">Quick help</a>
+        <a class="btn btn-secondary" href="index.html">Back to home</a>
+      </div>
+    </nav>
+  </header>
+
+  <main class="contact-page">
+    <section class="section-pad">
+      <div class="container contact-layout">
+        <div class="contact-copy reveal">
+          <span class="eyebrow">Contact</span>
+          <h1>Contact us</h1>
+          <p>Leave your information and we will contact you to provide more information about EcoRaíz.</p>
+          <div class="contact-info-card">
+            <h2>EcoRay Group</h2>
+            <p>Sustainable technology solutions for urban crops.</p>
+            <ul>
+              <li><span>🌱</span> Indoor crop monitoring</li>
+              <li><span>🔔</span> Preventive alerts</li>
+              <li><span>📈</span> Visual reports and analysis</li>
+            </ul>
+          </div>
+        </div>
+
+        <form class="contact-form reveal" id="contact-form" novalidate>
+          <div class="form-row">
+            <label for="name">Full name</label>
+            <input id="name" name="name" type="text" placeholder="e.g., Giovanni Gallegos" required />
+            <small class="error-message"></small>
+          </div>
+          <div class="form-row">
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" placeholder="email@example.com" required />
+            <small class="error-message"></small>
+          </div>
+          <div class="form-row">
+            <label for="userType">User type</label>
+            <select id="userType" name="userType" required>
+              <option value="">Select an option</option>
+              <option>Urban resident</option>
+              <option>Expert/Educator</option>
+              <option>Entrepreneur</option>
+              <option>Institution</option>
+            </select>
+            <small class="error-message"></small>
+          </div>
+          <div class="form-row">
+            <label for="subject">Subject</label>
+            <input id="subject" name="subject" type="text" placeholder="I want to learn about EcoRaíz" required />
+            <small class="error-message"></small>
+          </div>
+          <div class="form-row">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="5" placeholder="Tell us how we can help you" required></textarea>
+            <small class="error-message"></small>
+          </div>
+          <button class="btn btn-primary form-submit" type="submit">Send message</button>
+          <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+    <section class="section-pad contact-help" id="ayuda-rapida" aria-labelledby="contact-help-title">
+      <div class="container faq-grid">
+        <div class="faq-intro reveal">
+          <span class="eyebrow">Quick help</span>
+          <h2 id="contact-help-title">Resolve frequent questions without waiting for a response</h2>
+          <p>Before sending a message, review these answers and first steps for using EcoRaíz.</p>
+        </div>
+        <div class="faq-list reveal">
+          <details open>
+            <summary>How do I start using EcoRaíz?</summary>
+            <p>Enter “Try EcoRaíz”, register your basic information and select your user type: resident, expert or entrepreneur.</p>
+          </details>
+          <details>
+            <summary>What should I do if a plant appears in critical status?</summary>
+            <p>Review the preventive alert, apply the indicated recommendation and record the corrective action from the dashboard.</p>
+          </details>
+          <details>
+            <summary>Can I test the system without creating a real account?</summary>
+            <p>Yes. The current version includes demo access by segment to view the main features.</p>
+          </details>
+          <details>
+            <summary>Where do I review humidity, light and temperature?</summary>
+            <p>These variables are shown in the dashboard, within the main indicators and the environmental analysis section.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer compact-footer">
+    <div class="container footer-bottom">
+      <small>© 2026 EcoRay Group. Sustainable technology for urban crops.</small>
+    </div>
+  </footer>
+
+  <script src="assets/scripts/main.js"></script>
+</body>
+</html>
