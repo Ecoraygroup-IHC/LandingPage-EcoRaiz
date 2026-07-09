@@ -1,81 +1,81 @@
 const profileLabels = {
-  resident: 'Residente urbano',
-  expert: 'Experto ambiental / Educador',
-  entrepreneur: 'Emprendedor de plantas'
+  resident: 'Urban resident',
+  expert: 'Environmental expert / Educator',
+  entrepreneur: 'Plant entrepreneur'
 };
 
 const profileConfig = {
   resident: {
     icon: '🏠',
-    title: 'Dashboard de residente urbano',
-    kicker: 'US-RU · Cuidado de plantas de interior',
-    segment: 'Segmento 1: Residentes urbanos',
-    welcomeTitle: 'Cuida tus plantas con alertas simples y recomendaciones accionables',
-    welcomeCopy: 'Visualiza el estado de cada planta, revisa humedad, luz y temperatura, y marca cuidados como realizados.',
-    addLabel: 'Agregar planta',
-    itemsTitle: 'Mis plantas de interior',
+    title: 'Urban resident dashboard',
+    kicker: 'US-RU · Indoor plant care',
+    segment: 'Segment 1: Urban residents',
+    welcomeTitle: 'Care for your plants with simple alerts and actionable recommendations',
+    welcomeCopy: 'View each plant status, review humidity, light and temperature, and mark care tasks as completed.',
+    addLabel: 'Add plant',
+    itemsTitle: 'My indoor plants',
     itemsEyebrow: 'US-RU-01 / US-RU-03',
-    chartTitle: 'Evolución ambiental simplificada',
-    detailTitle: 'Calendario y estado del día',
+    chartTitle: 'Simplified environmental evolution',
+    detailTitle: 'Calendar and daily status',
     detailEyebrow: 'US-RU-09 / US-RU-10'
   },
   expert: {
     icon: '🔬',
-    title: 'Dashboard técnico para experto ambiental',
-    kicker: 'US-EA · Monitoreo y análisis ambiental',
-    segment: 'Segmento 2: Expertos y educadores',
-    welcomeTitle: 'Monitorea microclimas, variables detalladas y alertas técnicas',
-    welcomeCopy: 'Analiza cultivos de investigación con datos simulados, gráficos históricos, comparaciones y reportes.',
-    addLabel: 'Agregar cultivo técnico',
-    itemsTitle: 'Cultivos de investigación',
+    title: 'Technical dashboard for environmental experts',
+    kicker: 'US-EA · Environmental monitoring and analysis',
+    segment: 'Segment 2: Experts and educators',
+    welcomeTitle: 'Monitor microclimates, detailed variables and technical alerts',
+    welcomeCopy: 'Analyze research crops with simulated data, historical charts, comparisons and reports.',
+    addLabel: 'Add technical crop',
+    itemsTitle: 'Research crops',
     itemsEyebrow: 'US-EA-01 / US-EA-02',
-    chartTitle: 'Gráficos históricos de variables',
-    detailTitle: 'Comparación de microclimas',
+    chartTitle: 'Historical variable charts',
+    detailTitle: 'Microclimatete comparison',
     detailEyebrow: 'US-EA-03 / US-EA-04'
   },
   entrepreneur: {
     icon: '🪴',
-    title: 'Dashboard comercial para emprendedor',
-    kicker: 'US-EM · Inventario vivo y riesgos',
-    segment: 'Segmento 3: Emprendedores de plantas',
-    welcomeTitle: 'Supervisa tu inventario vivo y reduce pérdidas comerciales',
-    welcomeCopy: 'Controla plantas listas para venta, cultivos críticos, acciones correctivas y pérdidas potenciales.',
-    addLabel: 'Agregar planta comercial',
-    itemsTitle: 'Inventario vivo comercial',
+    title: 'Commercial dashboard for entrepreneurs',
+    kicker: 'US-EM · Live inventory and risks',
+    segment: 'Segment 3: Plant entrepreneurs',
+    welcomeTitle: 'Monitor your live inventory and reduce commercial losses',
+    welcomeCopy: 'Control plants ready for sale, critical crops, corrective actions and potential losses.',
+    addLabel: 'Add commercial plant',
+    itemsTitle: 'Commercial live inventory',
     itemsEyebrow: 'US-EM-01 / US-EM-07',
-    chartTitle: 'Riesgo comercial semanal',
-    detailTitle: 'Pérdidas potenciales e inventario',
+    chartTitle: 'Weekly commercial risk',
+    detailTitle: 'Potential losses and inventory',
     detailEyebrow: 'US-EM-03 / US-EM-08'
   }
 };
 
 const statusLabels = {
-  healthy: 'Saludable',
-  warning: 'Advertencia',
-  critical: 'Crítico',
-  resolved: 'Atendida'
+  healthy: 'Healthy',
+  warning: 'Warning',
+  critical: 'Critical',
+  resolved: 'Resolved'
 };
 
 const severityLabels = {
-  healthy: 'Saludable',
-  warning: 'Preventiva',
-  critical: 'Crítica'
+  healthy: 'Healthy',
+  warning: 'Preventive',
+  critical: 'Critical'
 };
 
 const defaultData = {
   resident: {
     items: [
-      { id: 'ru-1', name: 'Albahaca', species: 'Ocimum basilicum', location: 'Ventana de cocina', status: 'healthy', humidity: 58, temp: 24, light: 720, recommendation: 'No hay acciones urgentes por ahora.' },
-      { id: 'ru-2', name: 'Helecho', species: 'Nephrolepis', location: 'Sala', status: 'warning', humidity: 34, temp: 25, light: 430, recommendation: 'Agregar agua hoy y alejar de luz directa.' },
-      { id: 'ru-3', name: 'Suculenta', species: 'Echeveria', location: 'Escritorio', status: 'critical', humidity: 76, temp: 29, light: 940, recommendation: 'Suspender riego y mejorar ventilación.' }
+      { id: 'ru-1', name: 'Basil', species: 'Ocimum basilicum', location: 'Kitchen window', status: 'healthy', humidity: 58, temp: 24, light: 720, recommendation: 'No urgent actions for now.' },
+      { id: 'ru-2', name: 'Fern', species: 'Nephrolepis', location: 'Living room', status: 'warning', humidity: 34, temp: 25, light: 430, recommendation: 'Add water today and move away from direct light.' },
+      { id: 'ru-3', name: 'Succulent', species: 'Echeveria', location: 'Desk', status: 'critical', humidity: 76, temp: 29, light: 940, recommendation: 'Stop watering and improve ventilation.' }
     ],
     alerts: [
-      { id: 'al-ru-1', itemId: 'ru-2', severity: 'warning', title: 'Humedad baja en Helecho', message: 'El sustrato está por debajo del rango recomendado.', action: 'Agregar agua hoy.', resolved: false },
-      { id: 'al-ru-2', itemId: 'ru-3', severity: 'critical', title: 'Exceso de humedad en Suculenta', message: 'Puede generar deterioro de raíz si no se corrige.', action: 'Suspender riego por 24 horas.', resolved: false }
+      { id: 'al-ru-1', itemId: 'ru-2', severity: 'warning', title: 'Low humidity in Fern', message: 'The substrate is below the recommended range.', action: 'Agregar agua hoy.', resolved: false },
+      { id: 'al-ru-2', itemId: 'ru-3', severity: 'critical', title: 'Excess humidity in Succulent', message: 'It may cause root deterioration if not corrected.', action: 'Stop watering for 24 hours.', resolved: false }
     ],
     actions: [
-      { id: 'ac-ru-1', itemId: 'ru-2', text: 'Agregar agua hoy al Helecho.', done: false },
-      { id: 'ac-ru-2', itemId: 'ru-3', text: 'Mover Suculenta a una zona ventilada.', done: false }
+      { id: 'ac-ru-1', itemId: 'ru-2', text: 'Add water to the Fern today.', done: false },
+      { id: 'ac-ru-2', itemId: 'ru-3', text: 'Move Succulent to a ventilated area.', done: false }
     ],
     charts: {
       humidity: [55, 53, 49, 46, 42, 38, 36],
@@ -85,17 +85,17 @@ const defaultData = {
   },
   expert: {
     items: [
-      { id: 'ea-1', name: 'Microclima A', species: 'Cactus experimental', location: 'Invernadero 1', microclimate: 'Seco controlado', status: 'healthy', humidity: 42, temp: 26, light: 820, ph: 6.4, recommendation: 'Mantener exposición actual.' },
-      { id: 'ea-2', name: 'Microclima B', species: 'Hortalizas', location: 'Aula laboratorio', microclimate: 'Húmedo educativo', status: 'warning', humidity: 69, temp: 28, light: 610, ph: 6.8, recommendation: 'Revisar ventilación durante la tarde.' },
-      { id: 'ea-3', name: 'Microclima C', species: 'Hierbas aromáticas', location: 'Módulo de prueba', microclimate: 'Mixto', status: 'critical', humidity: 31, temp: 30, light: 500, ph: 5.9, recommendation: 'Activar riego y registrar observación técnica.' }
+      { id: 'ea-1', name: 'Microclimate A', species: 'Cactus experimental', location: 'Greenhouse 1', microclimate: 'Controlled dry', status: 'healthy', humidity: 42, temp: 26, light: 820, ph: 6.4, recommendation: 'Maintain current exposure.' },
+      { id: 'ea-2', name: 'Microclimate B', species: 'Vegetables', location: 'Lab classroom', microclimate: 'Educational humid', status: 'warning', humidity: 69, temp: 28, light: 610, ph: 6.8, recommendation: 'Check ventilation during the afternoon.' },
+      { id: 'ea-3', name: 'Microclimate C', species: 'Aromatic herbs', location: 'Testing module', microclimate: 'Mixed', status: 'critical', humidity: 31, temp: 30, light: 500, ph: 5.9, recommendation: 'Activate watering and record technical observation.' }
     ],
     alerts: [
-      { id: 'al-ea-1', itemId: 'ea-2', severity: 'warning', title: 'Temperatura elevada en Microclima B', message: 'La temperatura superó el rango definido para hortalizas.', action: 'Revisar ventilación y registrar observación.', resolved: false },
-      { id: 'al-ea-2', itemId: 'ea-3', severity: 'critical', title: 'Humedad crítica en Microclima C', message: 'Los valores pueden afectar la supervivencia del cultivo.', action: 'Activar riego y comparar con registros previos.', resolved: false }
+      { id: 'al-ea-1', itemId: 'ea-2', severity: 'warning', title: 'High temperature in Microclimatete B', message: 'Temperature exceeded the range defined for vegetables.', action: 'Check ventilation and record observation.', resolved: false },
+      { id: 'al-ea-2', itemId: 'ea-3', severity: 'critical', title: 'Critical humidity in Microclimatete C', message: 'The values may affect crop survival.', action: 'Activate watering and compare with previous records.', resolved: false }
     ],
     actions: [
-      { id: 'ac-ea-1', itemId: 'ea-2', text: 'Registrar observación técnica sobre temperatura.', done: false },
-      { id: 'ac-ea-2', itemId: 'ea-3', text: 'Comparar humedad con el periodo anterior.', done: false }
+      { id: 'ac-ea-1', itemId: 'ea-2', text: 'Record technical observation on temperature.', done: false },
+      { id: 'ac-ea-2', itemId: 'ea-3', text: 'Compare humidity with the previous period.', done: false }
     ],
     charts: {
       humidity: [44, 45, 43, 47, 41, 38, 36],
@@ -105,17 +105,17 @@ const defaultData = {
   },
   entrepreneur: {
     items: [
-      { id: 'em-1', name: 'Lote Helechos', species: 'Helechos', location: 'Zona húmeda', status: 'critical', quantity: 18, value: 25, availability: 'En recuperación', humidity: 29, temp: 27, light: 420, recommendation: 'Aumentar humedad y separar plantas deterioradas.' },
-      { id: 'em-2', name: 'Lote Suculentas', species: 'Suculentas', location: 'Mesa de exhibición', status: 'healthy', quantity: 40, value: 18, availability: 'Lista para venta', humidity: 48, temp: 25, light: 880, recommendation: 'Mantener condiciones actuales.' },
-      { id: 'em-3', name: 'Lote Lirios', species: 'Lirios', location: 'Almacén temporal', status: 'warning', quantity: 12, value: 35, availability: 'Reservada', humidity: 52, temp: 30, light: 760, recommendation: 'Bajar exposición solar y revisar hojas.' }
+      { id: 'em-1', name: 'Fern Batch', species: 'Ferns', location: 'Humid area', status: 'critical', quantity: 18, value: 25, availability: 'Recovering', humidity: 29, temp: 27, light: 420, recommendation: 'Increase humidity and separate deteriorated plants.' },
+      { id: 'em-2', name: 'Succulent Batch', species: 'Succulents', location: 'Display table', status: 'healthy', quantity: 40, value: 18, availability: 'Ready for sale', humidity: 48, temp: 25, light: 880, recommendation: 'Maintain current conditions.' },
+      { id: 'em-3', name: 'Lily Batch', species: 'Lilies', location: 'Temporary storage', status: 'warning', quantity: 12, value: 35, availability: 'Reserved', humidity: 52, temp: 30, light: 760, recommendation: 'Reduce sun exposure and check leaves.' }
     ],
     alerts: [
-      { id: 'al-em-1', itemId: 'em-1', severity: 'critical', title: 'Riesgo comercial en Helechos', message: '18 unidades pueden deteriorarse por baja humedad.', action: 'Atender humedad y registrar acción correctiva.', resolved: false },
-      { id: 'al-em-2', itemId: 'em-3', severity: 'warning', title: 'Lirios con exposición elevada', message: 'El lote puede perder calidad comercial.', action: 'Mover a zona con menor luz.', resolved: false }
+      { id: 'al-em-1', itemId: 'em-1', severity: 'critical', title: 'Commercial risk in Ferns', message: '18 units may deteriorate due to low humidity.', action: 'Address humidity and record corrective action.', resolved: false },
+      { id: 'al-em-2', itemId: 'em-3', severity: 'warning', title: 'Lilies with high exposure', message: 'The batch may lose commercial quality.', action: 'Move to an area with less light.', resolved: false }
     ],
     actions: [
-      { id: 'ac-em-1', itemId: 'em-1', text: 'Registrar acción correctiva para Helechos.', done: false },
-      { id: 'ac-em-2', itemId: 'em-3', text: 'Actualizar disponibilidad comercial de Lirios.', done: false }
+      { id: 'ac-em-1', itemId: 'em-1', text: 'Record corrective action for Ferns.', done: false },
+      { id: 'ac-em-2', itemId: 'em-3', text: 'Update commercial availability of Lilies.', done: false }
     ],
     charts: {
       humidity: [61, 58, 52, 48, 42, 36, 31],
@@ -175,7 +175,7 @@ function getUser() {
 function ensureSession() {
   const user = getUser();
   if (user && profileLabels[user.profile]) return user;
-  const demo = { name: 'Usuario Demo', email: 'demo@ecoraiz.com', profile: 'resident', profileLabel: profileLabels.resident };
+  const demo = { name: 'Demo User', email: 'demo@ecoraiz.com', profile: 'resident', profileLabel: profileLabels.resident };
   localStorage.setItem('ecoraiz-user', JSON.stringify(demo));
   localStorage.setItem('ecoraiz-session', 'active');
   return demo;
@@ -191,7 +191,7 @@ function clone(obj) {
 }
 
 function loadState() {
-  const key = `ecoraiz-dashboard-state-${currentProfile}`;
+  const key = `ecoraiz-dashboard-state-en-${currentProfile}`;
   try {
     const saved = JSON.parse(localStorage.getItem(key));
     if (saved?.items && saved?.alerts && saved?.actions && saved?.charts) return saved;
@@ -202,7 +202,7 @@ function loadState() {
 }
 
 function saveState() {
-  localStorage.setItem(`ecoraiz-dashboard-state-${currentProfile}`, JSON.stringify(state));
+  localStorage.setItem(`ecoraiz-dashboard-state-en-${currentProfile}`, JSON.stringify(state));
 }
 
 function openLogoutModal() {
@@ -255,29 +255,29 @@ function getKpis() {
   if (currentProfile === 'expert') {
     const microclimates = new Set(state.items.map((item) => item.microclimate || item.location)).size;
     return [
-      { icon: '🌱', label: 'Cultivos', value: state.items.length, copy: 'monitoreados' },
-      { icon: '🧪', label: 'Microclimas', value: microclimates, copy: 'comparables' },
-      { icon: '⚠️', label: 'Alertas técnicas', value: alerts, copy: 'activas' },
-      { icon: '💧', label: 'Humedad promedio', value: `${avg(state.items.map((i) => i.humidity))}%`, copy: 'última lectura' }
+      { icon: '🌱', label: 'Crops', value: state.items.length, copy: 'monitored' },
+      { icon: '🧪', label: 'Microclimates', value: microclimates, copy: 'comparable' },
+      { icon: '⚠️', label: 'Technical alerts', value: alerts, copy: 'active' },
+      { icon: '💧', label: 'Average humidity', value: `${avg(state.items.map((i) => i.humidity))}%`, copy: 'last reading' }
     ];
   }
 
   if (currentProfile === 'entrepreneur') {
     const units = state.items.reduce((sum, item) => sum + Number(item.quantity || 1), 0);
-    const ready = state.items.filter((item) => item.availability === 'Lista para venta').reduce((sum, item) => sum + Number(item.quantity || 1), 0);
+    const ready = state.items.filter((item) => item.availability === 'Ready for sale').reduce((sum, item) => sum + Number(item.quantity || 1), 0);
     return [
-      { icon: '📦', label: 'Inventario vivo', value: units, copy: 'unidades registradas' },
-      { icon: '🚨', label: 'Plantas críticas', value: critical, copy: 'lotes en riesgo' },
-      { icon: '💸', label: 'Pérdida potencial', value: formatMoney(potentialLoss()), copy: 'por deterioro' },
-      { icon: '✅', label: 'Listas para venta', value: ready, copy: 'unidades disponibles' }
+      { icon: '📦', label: 'Live inventory', value: units, copy: 'registered units' },
+      { icon: '🚨', label: 'Critical plants', value: critical, copy: 'at-risk batches' },
+      { icon: '💸', label: 'Potential loss', value: formatMoney(potentialLoss()), copy: 'due to deterioration' },
+      { icon: '✅', label: 'Ready for sale', value: ready, copy: 'available units' }
     ];
   }
 
   return [
     { icon: '🪴', label: 'Plantas', value: state.items.length, copy: 'registradas' },
-    { icon: '✅', label: 'Saludables', value: healthy, copy: 'sin acciones urgentes' },
-    { icon: '⚠️', label: 'Alertas', value: alerts, copy: 'preventivas activas' },
-    { icon: '📌', label: 'Cuidados', value: pendingActions, copy: 'pendientes hoy' }
+    { icon: '✅', label: 'Healthys', value: healthy, copy: 'sin acciones urgentes' },
+    { icon: '⚠️', label: 'Alerts', value: alerts, copy: 'active preventive' },
+    { icon: '📌', label: 'Care tasks', value: pendingActions, copy: 'pending today' }
   ];
 }
 
@@ -315,10 +315,10 @@ function renderKpis() {
 function renderAlerts() {
   const alerts = state.alerts.slice().sort((a, b) => Number(a.resolved) - Number(b.resolved));
   const active = activeAlerts().length;
-  dom.alertCount.textContent = `${active} activas`;
+  dom.alertCount.textContent = `${active} active`;
 
   if (!alerts.length) {
-    dom.alertList.innerHTML = '<div class="empty-state">No existen alertas registradas.</div>';
+    dom.alertList.innerHTML = '<div class="empty-state">No alerts have been registered.</div>';
     return;
   }
 
@@ -329,14 +329,14 @@ function renderAlerts() {
       <article class="alert-item">
         <div>
           <div class="alert-meta">
-            <span class="status-badge ${status}">${alert.resolved ? 'Atendida' : severityLabels[alert.severity]}</span>
-            <span class="status-badge">${item?.name || 'Registro'}</span>
+            <span class="status-badge ${status}">${alert.resolved ? 'Resolved' : severityLabels[alert.severity]}</span>
+            <span class="status-badge">${item?.name || 'Record'}</span>
           </div>
           <h3>${alert.title}</h3>
           <p>${alert.message}</p>
-          <p><strong>Acción:</strong> ${alert.action}</p>
+          <p><strong>Action:</strong> ${alert.action}</p>
         </div>
-        <button class="btn btn-secondary btn-small" type="button" data-resolve-alert="${alert.id}" ${alert.resolved ? 'disabled' : ''}>${alert.resolved ? 'Atendida' : 'Atender'}</button>
+        <button class="btn btn-secondary btn-small" type="button" data-resolve-alert="${alert.id}" ${alert.resolved ? 'disabled' : ''}>${alert.resolved ? 'Resolved' : 'Address'}</button>
       </article>
     `;
   }).join('');
@@ -344,7 +344,7 @@ function renderAlerts() {
 
 function renderActions() {
   if (!state.actions.length) {
-    dom.actionList.innerHTML = '<div class="empty-state">No hay recomendaciones pendientes.</div>';
+    dom.actionList.innerHTML = '<div class="empty-state">No pending recommendations.</div>';
     return;
   }
 
@@ -353,12 +353,12 @@ function renderActions() {
     return `
       <article class="action-item">
         <div class="action-meta">
-          <span class="status-badge ${action.done ? 'resolved' : 'warning'}">${action.done ? 'Completada' : 'Pendiente'}</span>
-          <span class="status-badge">${item?.name || 'Registro'}</span>
+          <span class="status-badge ${action.done ? 'resolved' : 'warning'}">${action.done ? 'Completed' : 'Pending'}</span>
+          <span class="status-badge">${item?.name || 'Record'}</span>
         </div>
         <h3>${action.text}</h3>
-        <p>${currentProfile === 'expert' ? 'Complementa el monitoreo con observaciones y datos históricos.' : currentProfile === 'entrepreneur' ? 'Ayuda a reducir pérdidas y mantener calidad comercial.' : 'Marca la acción cuando termines el cuidado.'}</p>
-        <button class="btn btn-primary btn-small" type="button" data-complete-action="${action.id}" ${action.done ? 'disabled' : ''}>${action.done ? 'Realizado' : 'Marcar como realizado'}</button>
+        <p>${currentProfile === 'expert' ? 'Support monitoring with observations and historical data.' : currentProfile === 'entrepreneur' ? 'Helps reduce losses and maintain commercial quality.' : 'Mark the action when you finish the care task.'}</p>
+        <button class="btn btn-primary btn-small" type="button" data-complete-action="${action.id}" ${action.done ? 'disabled' : ''}>${action.done ? 'Done' : 'Mark as done'}</button>
       </article>
     `;
   }).join('');
@@ -374,15 +374,15 @@ function renderItems() {
   });
 
   if (!items.length) {
-    dom.itemGrid.innerHTML = '<div class="empty-state">No se encontraron registros con ese filtro.</div>';
+    dom.itemGrid.innerHTML = '<div class="empty-state">No records were found with that filter.</div>';
     return;
   }
 
   dom.itemGrid.innerHTML = items.map((item) => {
     const extra = currentProfile === 'entrepreneur'
-      ? `<span class="status-badge">${item.quantity || 1} unidades</span><span class="status-badge">${formatMoney(item.value)} c/u</span>`
+      ? `<span class="status-badge">${item.quantity || 1} units</span><span class="status-badge">${formatMoney(item.value)} each</span>`
       : currentProfile === 'expert'
-        ? `<span class="status-badge">${item.microclimate || 'Microclima'}</span><span class="status-badge">pH ${item.ph || '—'}</span>`
+        ? `<span class="status-badge">${item.microclimate || 'Microclimate'}</span><span class="status-badge">pH ${item.ph || '—'}</span>`
         : `<span class="status-badge">${item.location}</span>`;
 
     return `
@@ -392,13 +392,13 @@ function renderItems() {
           ${extra}
         </div>
         <h3>${item.name}</h3>
-        <p>${item.species || 'Especie no definida'} · ${item.location || 'Ubicación no definida'}</p>
+        <p>${item.species || 'Undefined species'} · ${item.location || 'Undefined location'}</p>
         <div class="metric-strip">
-          <div><span>Humedad</span><strong>${item.humidity}%</strong></div>
+          <div><span>Humidity</span><strong>${item.humidity}%</strong></div>
           <div><span>Temp.</span><strong>${item.temp}°C</strong></div>
-          <div><span>Luz</span><strong>${item.light} lux</strong></div>
+          <div><span>Light</span><strong>${item.light} lux</strong></div>
         </div>
-        <p><strong>Recomendación:</strong> ${item.recommendation}</p>
+        <p><strong>Recommendation:</strong> ${item.recommendation}</p>
       </article>
     `;
   }).join('');
@@ -406,9 +406,9 @@ function renderItems() {
 
 function renderChartTabs() {
   const tabs = [
-    { key: 'humidity', label: 'Humedad' },
-    { key: 'temp', label: 'Temperatura' },
-    { key: 'light', label: 'Luz' }
+    { key: 'humidity', label: 'Humidity' },
+    { key: 'temp', label: 'Temperature' },
+    { key: 'light', label: 'Light' }
   ];
   dom.chartTabs.innerHTML = tabs.map((tab) => `
     <button type="button" class="${currentChart === tab.key ? 'is-active' : ''}" data-chart="${tab.key}">${tab.label}</button>
@@ -454,7 +454,7 @@ function renderDetails() {
         <span class="detail-icon">🧪</span>
         <div>
           <h3>${item.name}</h3>
-          <p>${item.microclimate} · Humedad ${item.humidity}% · Temp. ${item.temp}°C · Luz ${item.light} lux</p>
+          <p>${item.microclimate} · Humidity ${item.humidity}% · Temp. ${item.temp}°C · Light ${item.light} lux</p>
         </div>
         <span class="status-badge ${item.status}">${statusLabels[item.status]}</span>
       </article>
@@ -465,9 +465,9 @@ function renderDetails() {
   if (currentProfile === 'entrepreneur') {
     const critical = state.items.filter((item) => item.status === 'critical');
     const rows = [
-      { icon: '💸', title: 'Pérdida potencial', copy: 'Estimación según plantas críticas y valor referencial.', value: formatMoney(potentialLoss()), status: 'critical' },
-      { icon: '📦', title: 'Lotes en recuperación', copy: `${state.items.filter((item) => item.availability === 'En recuperación').length} lotes requieren seguimiento.`, value: 'Revisar', status: 'warning' },
-      { icon: '🚨', title: 'Mayor riesgo actual', copy: critical[0]?.name || 'No hay lote crítico activo.', value: critical[0] ? statusLabels[critical[0].status] : 'Estable', status: critical[0] ? critical[0].status : 'healthy' }
+      { icon: '💸', title: 'Potential loss', copy: 'Estimate based on critical plants and reference value.', value: formatMoney(potentialLoss()), status: 'critical' },
+      { icon: '📦', title: 'Batches in recovery', copy: `${state.items.filter((item) => item.availability === 'Recovering').length} batches require follow-up.`, value: 'Review', status: 'warning' },
+      { icon: '🚨', title: 'Current highest risk', copy: critical[0]?.name || 'No active critical batch.', value: critical[0] ? statusLabels[critical[0].status] : 'Stable', status: critical[0] ? critical[0].status : 'healthy' }
     ];
     dom.detailModule.innerHTML = rows.map((row) => `
       <article class="detail-row">
@@ -481,9 +481,9 @@ function renderDetails() {
 
   const pending = state.actions.filter((action) => !action.done);
   const rows = [
-    { icon: '📅', title: 'Cuidados de hoy', copy: `${pending.length} acciones pendientes para mantener el estado de tus plantas.`, value: pending.length ? 'Pendiente' : 'Listo', status: pending.length ? 'warning' : 'healthy' },
-    { icon: '🪴', title: 'Planta más delicada', copy: state.items.find((item) => item.status === 'critical')?.name || 'No hay plantas críticas.', value: state.items.find((item) => item.status === 'critical') ? 'Crítico' : 'Estable', status: state.items.find((item) => item.status === 'critical') ? 'critical' : 'healthy' },
-    { icon: '💡', title: 'Consejo personalizado', copy: 'Revisa la luz de las plantas cercanas a ventanas durante la tarde.', value: 'Tip', status: 'healthy' }
+    { icon: '📅', title: 'Today\'s care tasks', copy: `${pending.length} pending actions to keep your plants in good condition.`, value: pending.length ? 'Pending' : 'Ready', status: pending.length ? 'warning' : 'healthy' },
+    { icon: '🪴', title: 'Most delicate plant', copy: state.items.find((item) => item.status === 'critical')?.name || 'No critical plants.', value: state.items.find((item) => item.status === 'critical') ? 'Critical' : 'Stable', status: state.items.find((item) => item.status === 'critical') ? 'critical' : 'healthy' },
+    { icon: '💡', title: 'Personalized tip', copy: 'Check the light of plants near windows during the afternoon.', value: 'Tip', status: 'healthy' }
   ];
   dom.detailModule.innerHTML = rows.map((row) => `
     <article class="detail-row">
@@ -500,20 +500,20 @@ function renderReportPreview() {
   const actionsDone = state.actions.filter((action) => action.done).length;
   const rows = currentProfile === 'entrepreneur'
     ? [
-        { label: 'Inventario total', value: state.items.reduce((sum, item) => sum + Number(item.quantity || 1), 0), copy: 'unidades vivas registradas' },
-        { label: 'Alertas comerciales', value: alerts, copy: 'riesgos activos' },
-        { label: 'Pérdida potencial', value: formatMoney(potentialLoss()), copy: 'estimación actual' }
+        { label: 'Total inventory', value: state.items.reduce((sum, item) => sum + Number(item.quantity || 1), 0), copy: 'registered live units' },
+        { label: 'Commercial alerts', value: alerts, copy: 'active risks' },
+        { label: 'Potential loss', value: formatMoney(potentialLoss()), copy: 'current estimate' }
       ]
     : currentProfile === 'expert'
       ? [
-          { label: 'Cultivos técnicos', value: state.items.length, copy: 'registros monitoreados' },
-          { label: 'Alertas técnicas', value: alerts, copy: 'variables críticas' },
-          { label: 'Acciones completadas', value: actionsDone, copy: 'observaciones/ajustes' }
+          { label: 'Technical crops', value: state.items.length, copy: 'monitored records' },
+          { label: 'Technical alerts', value: alerts, copy: 'critical variables' },
+          { label: 'Completed actions', value: actionsDone, copy: 'observations/adjustments' }
         ]
       : [
-          { label: 'Plantas registradas', value: state.items.length, copy: 'en seguimiento' },
-          { label: 'Alertas preventivas', value: alerts, copy: 'requieren atención' },
-          { label: 'Estados críticos', value: critical, copy: 'plantas delicadas' }
+          { label: 'Registered plants', value: state.items.length, copy: 'under tracking' },
+          { label: 'Preventive alerts', value: alerts, copy: 'require attention' },
+          { label: 'Critical statuses', value: critical, copy: 'delicate plants' }
         ];
 
   dom.reportPreview.innerHTML = rows.map((row) => `
@@ -544,7 +544,7 @@ function resolveAlert(alertId) {
   const item = itemById(alert.itemId);
   if (item) {
     item.status = item.status === 'critical' ? 'warning' : 'healthy';
-    item.recommendation = 'Alerta atendida. Continuar monitoreo.';
+    item.recommendation = 'Alert addressed. Continue monitoring.';
   }
   const relatedAction = state.actions.find((action) => action.itemId === alert.itemId && !action.done);
   if (relatedAction) relatedAction.done = true;
@@ -567,17 +567,17 @@ function simulateAlert() {
   if (!target) return;
   target.status = 'critical';
   target.recommendation = currentProfile === 'entrepreneur'
-    ? 'Atender de inmediato para evitar pérdida comercial.'
+    ? 'Act immediately to avoid commercial loss.'
     : currentProfile === 'expert'
-      ? 'Revisar variable crítica y registrar observación técnica.'
-      : 'Realizar acción preventiva hoy.';
+      ? 'Review the critical variable and record a technical observation.'
+      : 'Perform preventive action today.';
   const id = `al-${Date.now()}`;
   state.alerts.unshift({
     id,
     itemId: target.id,
     severity: 'critical',
-    title: `Nueva alerta crítica en ${target.name}`,
-    message: 'Se detectó una desviación simulada fuera del rango recomendado.',
+    title: `New critical alert in ${target.name}`,
+    message: 'A simulated deviation outside the recommended range was detected.',
     action: target.recommendation,
     resolved: false
   });
@@ -603,13 +603,13 @@ function buildFormFields() {
   const common = `
     <div class="form-grid">
       <div class="form-row">
-        <label for="new-name">Nombre</label>
-        <input id="new-name" name="name" type="text" placeholder="Ej. Albahaca" required />
+        <label for="new-name">Name</label>
+        <input id="new-name" name="name" type="text" placeholder="e.g., Basil" required />
         <small class="error-message"></small>
       </div>
       <div class="form-row">
-        <label for="new-species">Especie</label>
-        <input id="new-species" name="species" type="text" placeholder="Ej. Ocimum basilicum" required />
+        <label for="new-species">Species</label>
+        <input id="new-species" name="species" type="text" placeholder="e.g., Ocimum basilicum" required />
         <small class="error-message"></small>
       </div>
     </div>
@@ -618,28 +618,28 @@ function buildFormFields() {
   if (currentProfile === 'expert') {
     return `${common}
       <div class="form-grid">
-        <div class="form-row"><label for="new-location">Ubicación</label><input id="new-location" name="location" type="text" placeholder="Laboratorio / aula" required /><small class="error-message"></small></div>
-        <div class="form-row"><label for="new-microclimate">Microclima</label><input id="new-microclimate" name="microclimate" type="text" placeholder="Húmedo / seco / mixto" required /><small class="error-message"></small></div>
+        <div class="form-row"><label for="new-location">Location</label><input id="new-location" name="location" type="text" placeholder="Lab / classroom" required /><small class="error-message"></small></div>
+        <div class="form-row"><label for="new-microclimate">Microclimate</label><input id="new-microclimate" name="microclimate" type="text" placeholder="Humid / dry / mixed" required /><small class="error-message"></small></div>
       </div>
-      <div class="modal-actions"><button class="btn btn-secondary" type="button" data-close-modal>Cancelar</button><button class="btn btn-primary" type="submit">Guardar cultivo</button></div>`;
+      <div class="modal-actions"><button class="btn btn-secondary" type="button" data-close-modal>Cancel</button><button class="btn btn-primary" type="submit">Save crop</button></div>`;
   }
 
   if (currentProfile === 'entrepreneur') {
     return `${common}
       <div class="form-grid">
-        <div class="form-row"><label for="new-quantity">Cantidad</label><input id="new-quantity" name="quantity" type="number" min="1" value="1" required /><small class="error-message"></small></div>
-        <div class="form-row"><label for="new-value">Valor referencial S/</label><input id="new-value" name="value" type="number" min="1" value="20" required /><small class="error-message"></small></div>
+        <div class="form-row"><label for="new-quantity">Quantity</label><input id="new-quantity" name="quantity" type="number" min="1" value="1" required /><small class="error-message"></small></div>
+        <div class="form-row"><label for="new-value">Reference value S/</label><input id="new-value" name="value" type="number" min="1" value="20" required /><small class="error-message"></small></div>
       </div>
       <div class="form-grid">
-        <div class="form-row"><label for="new-location">Ubicación</label><input id="new-location" name="location" type="text" placeholder="Zona de venta" required /><small class="error-message"></small></div>
-        <div class="form-row"><label for="new-availability">Disponibilidad</label><select id="new-availability" name="availability"><option>Lista para venta</option><option>Reservada</option><option>En recuperación</option></select><small class="error-message"></small></div>
+        <div class="form-row"><label for="new-location">Location</label><input id="new-location" name="location" type="text" placeholder="Sales area" required /><small class="error-message"></small></div>
+        <div class="form-row"><label for="new-availability">Availability</label><select id="new-availability" name="availability"><option>Ready for sale</option><option>Reserved</option><option>Recovering</option></select><small class="error-message"></small></div>
       </div>
-      <div class="modal-actions"><button class="btn btn-secondary" type="button" data-close-modal>Cancelar</button><button class="btn btn-primary" type="submit">Guardar planta comercial</button></div>`;
+      <div class="modal-actions"><button class="btn btn-secondary" type="button" data-close-modal>Cancel</button><button class="btn btn-primary" type="submit">Save commercial plant</button></div>`;
   }
 
   return `${common}
-    <div class="form-row"><label for="new-location">Ubicación en casa</label><input id="new-location" name="location" type="text" placeholder="Sala, ventana, cocina..." required /><small class="error-message"></small></div>
-    <div class="modal-actions"><button class="btn btn-secondary" type="button" data-close-modal>Cancelar</button><button class="btn btn-primary" type="submit">Guardar planta</button></div>`;
+    <div class="form-row"><label for="new-location">Home location</label><input id="new-location" name="location" type="text" placeholder="Living room, window, kitchen..." required /><small class="error-message"></small></div>
+    <div class="modal-actions"><button class="btn btn-secondary" type="button" data-close-modal>Cancel</button><button class="btn btn-primary" type="submit">Save plant</button></div>`;
 }
 
 function addFormError(field, message) {
@@ -674,7 +674,7 @@ function handleAddSubmit(event) {
   ['name', 'species', 'location'].forEach((fieldName) => {
     const field = dom.addForm.elements[fieldName];
     if (field && !String(field.value || '').trim()) {
-      addFormError(field, 'Campo obligatorio.');
+      addFormError(field, 'Required field.');
       isValid = false;
     }
   });
@@ -691,22 +691,22 @@ function handleAddSubmit(event) {
     humidity: randomBetween(42, 68),
     temp: randomBetween(22, 28),
     light: randomBetween(520, 880),
-    recommendation: 'Registro creado. Continuar monitoreo.'
+    recommendation: 'Record created. Continue monitoring.'
   };
 
   if (currentProfile === 'expert') {
-    newItem.microclimate = String(fd.get('microclimate') || '').trim() || 'Nuevo microclima';
+    newItem.microclimate = String(fd.get('microclimate') || '').trim() || 'New microclimate';
     newItem.ph = (Math.random() * 1.2 + 5.8).toFixed(1);
   }
 
   if (currentProfile === 'entrepreneur') {
     newItem.quantity = Math.max(1, Number(fd.get('quantity') || 1));
     newItem.value = Math.max(1, Number(fd.get('value') || 20));
-    newItem.availability = String(fd.get('availability') || 'Lista para venta');
+    newItem.availability = String(fd.get('availability') || 'Ready for sale');
   }
 
   state.items.unshift(newItem);
-  state.actions.unshift({ id: `ac-${Date.now()}`, itemId: newItem.id, text: currentProfile === 'expert' ? `Registrar primera observación técnica de ${name}.` : currentProfile === 'entrepreneur' ? `Verificar disponibilidad comercial de ${name}.` : `Revisar condiciones iniciales de ${name}.`, done: false });
+  state.actions.unshift({ id: `ac-${Date.now()}`, itemId: newItem.id, text: currentProfile === 'expert' ? `Record first technical observation for ${name}.` : currentProfile === 'entrepreneur' ? `Verify commercial availability for ${name}.` : `Review initial conditions for ${name}.`, done: false });
   saveState();
   closeModal();
   renderAll();
@@ -716,25 +716,25 @@ function exportReport() {
   const config = profileConfig[currentProfile];
   const report = [
     `EcoRaíz - ${config.title}`,
-    `Usuario: ${user.name}`,
-    `Perfil: ${profileLabels[currentProfile]}`,
-    `Fecha: ${new Date().toLocaleString('es-PE')}`,
+    `User: ${user.name}`,
+    `Profile: ${profileLabels[currentProfile]}`,
+    `Date: ${new Date().toLocaleString('en-US')}`,
     '',
-    'Indicadores:',
+    'Indicators:',
     ...getKpis().map((kpi) => `- ${kpi.label}: ${kpi.value} (${kpi.copy})`),
     '',
-    'Alertas activas:',
-    ...(activeAlerts().length ? activeAlerts().map((alert) => `- ${alert.title}: ${alert.action}`) : ['- Sin alertas activas']),
+    'Alerts active:',
+    ...(activeAlerts().length ? activeAlerts().map((alert) => `- ${alert.title}: ${alert.action}`) : ['- No active alerts']),
     '',
-    'Registros:',
-    ...state.items.map((item) => `- ${item.name} | ${statusLabels[item.status]} | Humedad ${item.humidity}% | Temp. ${item.temp}°C | Luz ${item.light} lux`)
+    'Records:',
+    ...state.items.map((item) => `- ${item.name} | ${statusLabels[item.status]} | Humidity ${item.humidity}% | Temp. ${item.temp}°C | Light ${item.light} lux`)
   ].join('\n');
 
   const blob = new Blob([report], { type: 'text/plain;charset=utf-8' });
   const url = URL.createObjectURL(blob);
   const link = document.createElement('a');
   link.href = url;
-  link.download = `ecoraiz-reporte-${currentProfile}.txt`;
+  link.download = `ecoraiz-report-${currentProfile}.txt`;
   document.body.appendChild(link);
   link.click();
   link.remove();
