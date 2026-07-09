@@ -732,9 +732,9 @@
 
 /* Modal */
 
-/* Evita que el modal aparezca vacío al cargar la página.
-   Algunas reglas de display pueden sobrescribir el atributo hidden,
-   por eso se fuerza aquí el ocultamiento. */
+/* Prevents the modal from appearing empty when the page loads.
+   Some display rules may override the hidden attribute,
+   so hiding is reinforced here. */
 .modal-backdrop[hidden],
 [hidden] {
   display: none !important;
